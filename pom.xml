@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xinzhuxiansheng.javaproject</groupId>
+    <artifactId>javamain-services</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+<!--        <module>javamain-elasticJobA</module>       -->
+		<module>javamain-zookeeperFeatures</module>       
+		<module>javamain-elasticsearch</module>       
+		<module>javamain-JOptSimple</module>   
+		<module>javamain-nettyhttp</module>
+		<module>javamain-jdk</module>
+		<module>javamain-algorithms</module>
+<!--		<module>javamain-annotation</module>	-->
+<!--		<module>javamain-kafkaClient</module>-->
+		<module>javamain-demo</module>
+		<module>javamain-java8</module>
+		<module>javamain-kafkaClient01000</module>
+		<module>javamain-monitorAD</module>
+<!--		<module>javamain-mybatis</module>-->
+		<module>javamain-springkafka</module>
+		<module>javamain-guava</module>
+		<module>javamain-brpcjava01</module>
+		<module>javamain-brpcjava02</module>
+		<module>javamain-designPatterns</module>
+    </modules>
+
+</project>
