@@ -1,6 +1,8 @@
 package com.javamain.temp;
 
 import java.util.BitSet;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Test01 {
@@ -15,13 +17,16 @@ public class Test01 {
         //System.out.println(5000 << 10000);
 
 
-        String a = null;
-        try{
-            if(a.contains("b")){
-                System.out.println("aaaaa");
-            }
-        }catch(Exception e){
-            System.out.println(e.getCause().getMessage());
-        }
+//        String a = null;
+//        try{
+//            if(a.contains("b")){
+//                System.out.println("aaaaa");
+//            }
+//        }catch(Exception e){
+//            System.out.println(e.getCause().getMessage());
+//        }
+
+        Queue<Long> log = new LinkedList<>();
+
     }
 }
