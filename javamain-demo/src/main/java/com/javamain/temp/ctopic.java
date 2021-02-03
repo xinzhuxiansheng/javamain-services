@@ -58,7 +58,7 @@ public class ctopic {
             }
 
 
-            //JSONObject result = HttpUtil.httpPost("http://bdp-kafka.cloud.bdp.autohome.com.cn/ops/topic/autoCreateTopicAndAddACLOneStop",obj);
+            //JSONObject result = HttpUtil.httpPost("http://bdp-kafka.cloud.bdp.xxxxhome.com.cn/ops/topic/autoCreateTopicAndAddACLOneStop",obj);
             //System.out.println(result);
         });
 

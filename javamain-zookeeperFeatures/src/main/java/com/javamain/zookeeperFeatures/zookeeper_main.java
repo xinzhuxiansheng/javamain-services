@@ -38,7 +38,7 @@ public class zookeeper_main {
      //   System.setProperty("zookeeper.sasl.clientconfig",   "Client");
      //   System.setProperty("zookeeper.sasl.client",   "true");
 
-//        builder.authorization("digest", "autohome:autohome001".getBytes(Charsets.UTF_8))
+//        builder.authorization("digest", "xxxxhome:xxxxhome001".getBytes(Charsets.UTF_8))
 //                .aclProvider(new ACLProvider() {
 //
 //                    @Override

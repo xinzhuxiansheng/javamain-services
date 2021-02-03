@@ -13,7 +13,7 @@ public class dianzi215_consumer_main {
     public static void main(String[] args) {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "10.168.100.215:9092");
+        properties.put("bootstrap.servers", "xx.xxx.100.215:9092");
         properties.put("client.id","2532400d94ee4195a82a5dfb152d1f8");
         properties.setProperty("group.id", "gidyzhou0614");
         properties.put("enable.auto.commit", "true");

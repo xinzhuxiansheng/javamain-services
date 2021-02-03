@@ -13,7 +13,7 @@ public class dianzi010_consumer_main {
     public static void main(String[] args) throws InterruptedException {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "10.168.100.16:9093");
+        properties.put("bootstrap.servers", "xx.xxx.100.16:9093");
         properties.put("client.id","dc");
         properties.setProperty("group.id", "yzhougid2020101101");
         properties.put("enable.auto.commit", "true");

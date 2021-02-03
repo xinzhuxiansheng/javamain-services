@@ -16,7 +16,7 @@ public class testmain {
     public static void main(String[] args) {
         try{
             scsngexecute("jw202004161126", "yzhoutp01",
-                    "10.168.100.16:9093");
+                    "xx.xxx.100.16:9093");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -87,11 +87,11 @@ public class testmain {
             }
             logger.info("Topic:" + topic + ", groupID:" + groupID + ", LAG:" + lagSum);
 //            if (lagSum > 1000000) {
-//                NoticeService.sendkafkaAlarm("3", "zhouyang0627@autohome.com.cn", "this topic partitions lost");
+//                NoticeService.sendkafkaAlarm("3", "zhouyang0627@xxxxhome.com.cn", "this topic partitions lost");
 //            }
         } else {
             logger.info("this topic partitions lost");
-            //NoticeService.sendkafkaAlarm("3", "zhouyang0627@autohome.com.cn", "this topic partitions lost");
+            //NoticeService.sendkafkaAlarm("3", "zhouyang0627@xxxxhome.com.cn", "this topic partitions lost");
         }
     }
 }

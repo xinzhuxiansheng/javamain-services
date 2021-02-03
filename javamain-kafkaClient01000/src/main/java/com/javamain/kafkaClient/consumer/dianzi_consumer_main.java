@@ -13,7 +13,7 @@ public class dianzi_consumer_main {
         Properties properties = new Properties();
 
         properties.put("session.timeout.ms","30000");
-        properties.put("bootstrap.servers", "10.168.100.16:9092");
+        properties.put("bootstrap.servers", "xx.xxx.100.16:9092");
         properties.put("client.id","dc");
         properties.setProperty("group.id", "yzhougroupid2019101102");
         properties.put("enable.auto.commit", "true");

@@ -19,7 +19,7 @@ public class zookeeperACL_main {
                 .retryPolicy(new ExponentialBackoffRetry(1000,3,3000))
                 .namespace("Yzhou02");
 
-        builder.authorization("digest", "autohome000000:autohome001".getBytes(Charsets.UTF_8))
+        builder.authorization("digest", "xxxxhome000000:xxxxhome001".getBytes(Charsets.UTF_8))
                 .aclProvider(new ACLProvider() {
                     @Override
                     public List<ACL> getDefaultAcl() {

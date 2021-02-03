@@ -15,7 +15,7 @@ public class ConsumerTimestampMain {
     public static void main(String[] args) {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "yz-test01-broker0-kafka.corpautohome.com:9092,yz-test01-broker1-kafka.corpautohome.com:9092,yz-test01-broker2-kafka.corpautohome.com:9092");
+        properties.put("bootstrap.servers", "yz-test01-broker0-kafka.corpxxxxhome.com:9092,yz-test01-broker1-kafka.corpxxxxhome.com:9092,yz-test01-broker2-kafka.corpxxxxhome.com:9092");
         properties.put("client.id", "1e357476ee124201a655c7175cb1750e");
         properties.setProperty("group.id", "yzhougid05140672");
         properties.put("enable.auto.commit", "true");

@@ -23,7 +23,7 @@ public class AdminClient {
         //列举 consumer
         //listConsuemrGroup();
 
-        setConsumerGroupIdAtTimeStamp("10.168.100.16:9093",
+        setConsumerGroupIdAtTimeStamp("xx.xxx.100.16:9093",
                 "D://commandconfig.properties",
                 "yzhougid2020092901",
                 "yzhoutpA001",
