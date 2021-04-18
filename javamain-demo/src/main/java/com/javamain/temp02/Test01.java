@@ -13,7 +13,7 @@ public class Test01 {
 //
 //        System.out.println(configManager.getListeners().size());
 
-        String str = "373b7015f8254730a70ff29f088703be|3|10.28.244.232:9092-10.27.214.4:20470-55656";
+        String str = "373b7015f8254730a70ff29f088703be|3|xx.xxx.244.232:9092-xx.xxx.214.4:20470-55656";
         String[] b = StringUtils.splitByWholeSeparatorPreserveAllTokens(str,"|");
         String[] a = str.split("|");
         System.out.println(a.length);
