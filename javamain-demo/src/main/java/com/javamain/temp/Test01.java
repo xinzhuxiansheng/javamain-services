@@ -8,9 +8,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Test01 {
     public static void main(String[] args) {
-        Properties prop = new Properties();
-        prop.put("a",100);
-        System.out.println(prop.getProperty("a"));
+//        Properties prop = new Properties();
+//        prop.put("a",100);
+//        System.out.println(prop.getProperty("a"));
 
+        System.out.println(10 >> 1);
     }
 }

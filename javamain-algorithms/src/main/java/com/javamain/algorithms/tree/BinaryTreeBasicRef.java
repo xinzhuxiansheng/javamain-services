@@ -1,6 +1,6 @@
 package com.javamain.algorithms.tree;
 
-public class BinaryTreeDemo {
+public class BinaryTreeBasicRef {
 
     public static void main(String[] args) {
         //先需要创建一颗二叉树
