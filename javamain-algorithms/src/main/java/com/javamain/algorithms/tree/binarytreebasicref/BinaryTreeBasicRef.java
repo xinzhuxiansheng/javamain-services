@@ -1,4 +1,4 @@
-package com.javamain.algorithms.tree;
+package com.javamain.algorithms.tree.binarytreebasicref;
 
 public class BinaryTreeBasicRef {
 
