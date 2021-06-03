@@ -13,8 +13,8 @@ public class BaiDuYunConsumerMain {
     public static void main(String[] args) {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "118.126.116.71:9093");
-        properties.setProperty("group.id", "gudisadfazsfda");
+        properties.put("bootstrap.servers", "127.0.0.1:9092");
+        properties.setProperty("group.id", "devgid2021060201");
         properties.put("enable.auto.commit", "true");
         properties.put("auto.commit.interval.ms", "1000");
         properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
