@@ -9,11 +9,11 @@ public class dianzi_producer_main {
     public static void main(String[] args) throws InterruptedException {
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "xx.xxx.100.16:9093");
+        properties.put("bootstrap.servers", "127.0.0.1:9092");
         properties.put("retries", 2); // 发送失败的最大尝试次数
         properties.put("batch.size", "1048576"); // 1MB
-        properties.put("compression.type", "gzip");
-        properties.put("linger.ms", "5"); // 最长延迟5秒必须发送
+        properties.put("compression.type", "snappy");
+        properties.put("linger.ms", "100");
         properties.put("buffer.memory", "67108864");// 64MB
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -31,19 +31,9 @@ public class dianzi_producer_main {
                     }
                 }
             });
-            Thread.currentThread().sleep(1000L);
-            System.out.println(data);
+            System.out.println(data + " , " + data.getBytes().length);
+            //Thread.currentThread().sleep(10000L);
             i++;
-            if(i==1){
-                break;
-            }
-        }
-        producer.close();
-
-        int j=0;
-        while(true){
-            Thread.sleep(1000L);
-            System.out.println(j++);
         }
     }
 }

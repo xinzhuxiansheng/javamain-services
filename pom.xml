@@ -28,6 +28,7 @@
 		<module>javamain-brpcjava01</module>
 		<module>javamain-brpcjava02</module>
 		<module>javamain-designPatterns</module>
+		<module>javamain-caffeine</module>
     </modules>
 
 </project>
