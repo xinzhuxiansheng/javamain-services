@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javamain-nettyhttp</artifactId>
+    <artifactId>javamain-guide-rpc-framework</artifactId>
 
 
     <properties>
@@ -73,6 +73,11 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.35.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.7.0</version>
         </dependency>
 
     </dependencies>

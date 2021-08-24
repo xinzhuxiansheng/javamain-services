@@ -13,7 +13,7 @@
 		<module>javamain-zookeeperFeatures</module>       
 		<module>javamain-elasticsearch</module>       
 		<module>javamain-JOptSimple</module>   
-		<module>javamain-nettyhttp</module>
+		<module>javamain-netty</module>
 		<module>javamain-jdk</module>
 		<module>javamain-algorithms</module>
 <!--		<module>javamain-annotation</module>	-->
@@ -29,6 +29,7 @@
 		<module>javamain-brpcjava02</module>
 		<module>javamain-designPatterns</module>
 		<module>javamain-caffeine</module>
+		<module>javamain-guide-rpc-framework</module>
     </modules>
 
 </project>

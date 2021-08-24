@@ -1,4 +1,3 @@
-/*
 package com.javamain.brpcjava01;
 
 import com.baidu.brpc.server.RpcServer;
@@ -28,4 +27,3 @@ public class RPCServerTest {
         }
     }
 }
-*/

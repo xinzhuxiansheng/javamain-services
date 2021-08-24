@@ -11,7 +11,7 @@ public class CountDownLatchWorkThreadBlockDebug {
 
     public static void main(String[] args) {
         try {
-            CountDownLatch countDownLatch = new CountDownLatch(3);
+            CountDownLatch countDownLatch = new CountDownLatch(1);
 
             for (int i = 0; i < 3; i++) {
                 HandleWork handleWork = new HandleWork("threadName-" + i, countDownLatch);
