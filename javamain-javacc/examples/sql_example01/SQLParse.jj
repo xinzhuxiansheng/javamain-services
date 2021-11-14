@@ -1,0 +1,141 @@
+PARSER_BEGIN(SQLParser)
+public class SQLParser{
+  public static void main(String args[]) {
+    System.out.println("Reading from standard input...");
+    SQLParser p = new SQLParser(System.in);
+    try {
+      SimpleNode n = p.Start();
+      n.dump("");
+      System.out.println("Thank you.");
+    } catch (Exception e) {
+      System.out.println("Oops.");
+      System.out.println(e.getMessage());
+      e.printStackTrace();
+    }
+  }}
+PARSER_END(SQLParser)/*定义词法分析*/
+SKIP:{" "}
+SKIP:{"\n"|"\r"|"\r\n"}
+TOKEN:/*定义关键字*/
+{
+ <USE:"use">
+ | <WHERE:"where">
+ | <AND:"and">
+}
+TOKEN:/*定义符号*/
+{
+ <UNDERSCORE:"_"> | <COMMA:","> | <SEMICOLON:";"> | <COLON:":"> | <LEFTPARENTHESES:"("> | <RIGHTPARENTHESES:")"> | <EQUAL:"="> | <PLUS:"+"> | <MINUS:"-"> | <TIMES:"*"> | <DIVIDE:"/">
+ | <LEFTQUOTATION:"\"">
+ | <LQUOTATION:"'">}
+TOKEN:/* 定义整数 */
+{
+ <INTEGER_LITERAL:["1"-"9"](<DIGIT>)*>
+}
+TOKEN:/*定义数字*/
+{
+ <#DIGIT:["0"-"9"]>
+}
+TOKEN:/* 定义标识符 */
+{
+ <IDENTIFIER:<LETTER>
+ |<LETTER><DIGIT>
+ | <LETTER>(<LETTER>
+ | <DIGIT>
+ | <UNDERSCORE>)*(<LETTER>
+ | <DIGIT>)+>
+ | <#LETTER:["a"-"z", "A"-"Z"]>
+}
+/* 语法解析*/
+SimpleNode Start() : {}
+{
+  Expression() ";"
+  { return jjtThis; }
+}
+void Expression() : {}
+{
+  Query()|CreT()|DropT()|DelT()|InsT()
+}void Query():{}
+{
+SFW()[<ORDER><BY>Attribute()]
+}
+void SFW():{}
+{
+<SELECT>[<DISTINCT>]SelList()<FROM>FromList()<WHERE>Condition()
+}
+void SelList():{}
+{
+Attribute()[(<COMMA>Attribute())+]
+}
+void FromList():{}
+{
+Relation()[(<COMMA>Relation())+]
+}
+void Condition():{}
+{
+/*[Condition()<AND>Condition()]|*/
+/*[Tuple()<IN>Query()]*/
+[Attribute()<EQUAL>Attribute()]
+|[Attribute()<LIKE>Pattern()]
+|[Attribute()<EQUAL>IDENTIFIER()]
+}
+void Tuple():{}
+{
+Attribute()
+}
+/*-------------------*/
+void CreT():{}
+{
+<CREATE><TABLE>Relation()<LEFTPARENTHESES>ColList()<RIGHTPARENTHESES>
+}
+void ColList():{}
+{
+Attribute()Type()[(<COMMA>Attribute()Type())+]
+}
+void Type():{}
+{
+<INT>|<DATE>|<CHAR><LEFTPARENTHESES><INTEGER_LITERAL><RIGHTPARENTHESES>
+}
+/*-------------------*/
+void DropT():{}
+{
+<DROP><TABLE>Relation()
+}
+void DelT():{}
+{
+<DELETE>DelList()<FROM>FromList()<WHERE>Condition()
+}
+void DelList():{}
+{
+Attribute()[(<COMMA>Attribute())+]
+}
+/*-------------------*/
+void InsT():{}
+{
+<INSERT><INTO>Relation()<LEFTPARENTHESES>InList()<RIGHTPARENTHESES><VALUES><LEFTPARENTHESES>VList()<RIGHTPARENTHESES>
+}
+void InList():{}
+{
+Attribute()[(<COMMA>Attribute())+]
+}
+void VList():{}
+{
+<LEFTQUOTATION>IDENTIFIER()<LEFTQUOTATION>[(<COMMA><LEFTQUOTATION>IDENTIFIER()<LEFTQUOTATION>)+]
+}
+/*-------------------*/
+void Attribute():{}
+{
+IDENTIFIER()
+}
+void Relation():{}
+{
+IDENTIFIER()
+}
+void Pattern():{}
+{
+<LQUOTATION>IDENTIFIER()<LQUOTATION>
+}
+/*-------------------*/
+void IDENTIFIER():{}
+{
+<IDENTIFIER>
+}

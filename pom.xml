@@ -30,6 +30,7 @@
 		<module>javamain-designPatterns</module>
 		<module>javamain-caffeine</module>
 		<module>javamain-guide-rpc-framework</module>
+		<module>javamain-javacc</module>
     </modules>
 
 </project>

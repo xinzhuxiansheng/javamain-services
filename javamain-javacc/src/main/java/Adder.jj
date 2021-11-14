@@ -1,0 +1,29 @@
+/*adder.jj 吧一堆数字相加*/
+options{
+        STATIC = false;
+}
+PARSER_BEGIN(Adder)
+public class Adder{
+        public static void main(String[] args) throws ParseException, TokenMgrError{
+                Adder parser = new Adder(System.in);
+                parser.Start();
+        }
+}
+PARSER_END(Adder)
+
+//词法分析器
+SKIP :{" "}
+SKIP:{"\n"|"\r"|"\r\n"}
+TOKEN:{< PLUS : "+">}
+TOKEN:{< NUMBER : (["0"-"9"])+ >}
+
+void Start():
+{}
+{
+    <NUMBER>
+    (
+            <PLUS>
+            <NUMBER>
+    )*
+    <EOF>
+}
