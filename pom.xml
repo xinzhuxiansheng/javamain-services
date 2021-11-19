@@ -10,9 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
 <!--        <module>javamain-elasticJobA</module>       -->
-		<module>javamain-zookeeperFeatures</module>       
-		<module>javamain-elasticsearch</module>       
-		<module>javamain-JOptSimple</module>   
+		<module>javamain-zookeeperFeatures</module>
+		<module>javamain-elasticsearch</module>
+		<module>javamain-JOptSimple</module>
 		<module>javamain-netty</module>
 		<module>javamain-jdk</module>
 		<module>javamain-algorithms</module>
@@ -31,6 +31,7 @@
 		<module>javamain-caffeine</module>
 		<module>javamain-guide-rpc-framework</module>
 		<module>javamain-javacc</module>
+    <module>javamain-velocity</module>
     </modules>
 
 </project>
