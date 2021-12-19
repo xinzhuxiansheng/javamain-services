@@ -31,6 +31,10 @@
 		<module>javamain-caffeine</module>
 		<module>javamain-guide-rpc-framework</module>
 		<module>javamain-javacc</module>
+
+        <module>javamain-dubboclient</module>
+        <module>javamain-dubboserver</module>
+
     <module>javamain-velocity</module>
     </modules>
 

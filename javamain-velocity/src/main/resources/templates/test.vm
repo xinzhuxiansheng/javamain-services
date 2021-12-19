@@ -3,6 +3,7 @@ kind: Service
 apiVersion: v1
 metadata:
   namespace: $k8snamespace
+  kkkk: $k8snamespace
   name: kafka-yzhoutest-service
   labels:
     app: kafka

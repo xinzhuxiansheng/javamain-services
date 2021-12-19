@@ -32,8 +32,8 @@ public class TestMain {
         }
         /* lets make a Context and put data into it */
         VelocityContext context = new VelocityContext();
-        context.put("k8snamespace", "Velocity");
-        context.put("key", "Engine");
+        context.put("k8snamespace", "\"Velocity\"");
+        context.put("key", "\"Engine\"");
 
         Template template = null;
         try {
