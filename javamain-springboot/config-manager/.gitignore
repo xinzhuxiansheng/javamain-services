@@ -33,5 +33,3 @@ solo.iml
 hs_err_pid*
 */*.iml
 *.iml
-
-logs/

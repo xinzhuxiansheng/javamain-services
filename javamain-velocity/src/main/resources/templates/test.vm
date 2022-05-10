@@ -78,7 +78,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
         - name: kafka-data
-          image: hub.bitautotech.com/yc-middleware/yc-kafka:2.13-2.7.1
+          image: hub.ycdocker.com/yc-middleware/yc-kafka:2.13-2.7.1
           command:
             - bash
             - -c
@@ -127,7 +127,7 @@ spec:
             - name: "KAFKA_NUM_IO_THREADS"
               value: "16"
             - name: "KAFKA_ZOOKEEPER_CONNECT"
-              value: "10.24.15.123:2181/kafka-yzhou01"
+              value: "10.xxx.xxx.123:2181/kafka-yzhou01"
             - name: "KAFKA_AUTO_CREATE_TOPICS_ENABLE"
               value: "FALSE"
             - name: "KAFKA_LOG_DIRS"

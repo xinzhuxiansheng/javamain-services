@@ -120,6 +120,12 @@
             <artifactId>brpc-java-naming-zookeeper</artifactId>
             <version>3.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>

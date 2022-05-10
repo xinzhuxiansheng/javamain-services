@@ -9,33 +9,35 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-<!--        <module>javamain-elasticJobA</module>       -->
-		<module>javamain-zookeeperFeatures</module>
-		<module>javamain-elasticsearch</module>
-		<module>javamain-JOptSimple</module>
-		<module>javamain-netty</module>
-		<module>javamain-jdk</module>
-		<module>javamain-algorithms</module>
-<!--		<module>javamain-annotation</module>	-->
-<!--		<module>javamain-kafkaClient</module>-->
-		<module>javamain-demo</module>
-		<module>javamain-java8</module>
-		<module>javamain-kafkaClient01000</module>
-		<module>javamain-monitorAD</module>
-<!--		<module>javamain-mybatis</module>-->
-		<module>javamain-springkafka</module>
-		<module>javamain-guava</module>
-		<module>javamain-brpcjava01</module>
-		<module>javamain-brpcjava02</module>
-		<module>javamain-designPatterns</module>
-		<module>javamain-caffeine</module>
-		<module>javamain-guide-rpc-framework</module>
-		<module>javamain-javacc</module>
+        <!--        <module>javamain-elasticJobA</module>       -->
+        <module>javamain-zookeeperFeatures</module>
+        <module>javamain-elasticsearch</module>
+        <module>javamain-JOptSimple</module>
+        <module>javamain-netty</module>
+<!--        <module>javamain-jdk</module>-->
+        <module>javamain-algorithms</module>
+        <!--		<module>javamain-annotation</module>	-->
+        <!--		<module>javamain-kafkaClient</module>-->
+        <module>javamain-demo</module>
+        <module>javamain-java8</module>
+        <module>javamain-kafkaClient01000</module>
+        <module>javamain-monitorAD</module>
+        <!--		<module>javamain-mybatis</module>-->
+        <module>javamain-springkafka</module>
+        <module>javamain-guava</module>
+<!--        <module>javamain-brpcjava01</module>-->
+<!--        <module>javamain-brpcjava02</module>-->
+        <module>javamain-designPatterns</module>
+        <module>javamain-caffeine</module>
+        <module>javamain-guide-rpc-framework</module>
+        <module>javamain-javacc</module>
 
         <module>javamain-dubboclient</module>
         <module>javamain-dubboserver</module>
+        <module>javamain-k8s</module>
 
-    <module>javamain-velocity</module>
+        <module>javamain-velocity</module>
+        <module>javamain-springboot</module>
     </modules>
 
 </project>
