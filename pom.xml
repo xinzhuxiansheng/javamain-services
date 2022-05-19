@@ -38,6 +38,8 @@
 
         <module>javamain-velocity</module>
         <module>javamain-springboot</module>
+        <module>javamain-common</module>
+        <module>javamain-prometheus</module>
     </modules>
 
 </project>

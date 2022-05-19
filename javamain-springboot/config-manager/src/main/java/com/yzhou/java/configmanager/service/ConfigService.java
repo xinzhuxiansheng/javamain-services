@@ -1,4 +1,4 @@
-package com.javamain.configmanager.service;
+package com.yzhou.java.configmanager.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

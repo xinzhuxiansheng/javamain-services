@@ -1,9 +1,6 @@
 package com.javamain.temp;
 
-import java.util.BitSet;
-import java.util.LinkedList;
-import java.util.Properties;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Test01 {
@@ -11,7 +8,12 @@ public class Test01 {
 //        Properties prop = new Properties();
 //        prop.put("a",100);
 //        System.out.println(prop.getProperty("a"));
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "a");
+        map.put("b", "b");
 
-        System.out.println(10 >> 1);
+        Set<String> keys = map.keySet();
+        keys.remove("a");
+        System.out.println(map.size());
     }
 }
