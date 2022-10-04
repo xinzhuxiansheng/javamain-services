@@ -23,7 +23,7 @@ public class LocaDev {
         Long i = 0L;
         while(true){
             String data = i+"\\t2\\tAndroid\\t869830039316690\\thuawei\\t0\\tarmeabi-v7a\\t9\\t10.1.5\\tHWI-AL00\\tHUAWEI";
-            producer.send(new ProducerRecord<String, String>("yzhoutp01",data), new Callback() {
+            producer.send(new ProducerRecord<String, String>("pipeline_yzegus",data), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if(null == recordMetadata){

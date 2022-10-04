@@ -19,6 +19,7 @@
         <module>zk-election-02</module>
         <module>feature-demo</module>
         <module>config-manager</module>
+        <module>apisix-demo</module>
     </modules>
 
     <properties>

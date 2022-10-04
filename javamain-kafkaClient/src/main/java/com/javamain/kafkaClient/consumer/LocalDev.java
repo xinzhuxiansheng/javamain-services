@@ -13,17 +13,17 @@ public class LocalDev {
     public static void main(String[] args) throws InterruptedException {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "127.0.0.1:9092");
+        properties.put("bootstrap.servers", "192.168.70.34:9093");
         properties.put("client.id","dc");
-        properties.setProperty("group.id", "yzhougid2020101101");
+        properties.setProperty("group.id", "yzhougid2020101102");
         properties.put("enable.auto.commit", "true");
-        properties.put("auto.offset.reset", "earliest");
+        //properties.put("auto.offset.reset", "earliest");
         properties.put("auto.commit.interval.ms", "1000");
         properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
         KafkaConsumer<String,String> kafkaConsumer = new KafkaConsumer<String, String>(properties);
-        kafkaConsumer.subscribe(Arrays.asList("yzhoutp01"));
+        kafkaConsumer.subscribe(Arrays.asList("yzhoutp02"));
 
         while(true) {
             ConsumerRecords<String,String> records = kafkaConsumer.poll(Duration.ofSeconds(10));

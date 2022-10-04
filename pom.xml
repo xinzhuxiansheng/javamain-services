@@ -14,10 +14,10 @@
         <module>javamain-elasticsearch</module>
         <module>javamain-JOptSimple</module>
         <module>javamain-netty</module>
-<!--        <module>javamain-jdk</module>-->
+        <!--        <module>javamain-jdk</module>-->
         <module>javamain-algorithms</module>
         <!--		<module>javamain-annotation</module>	-->
-        <!--		<module>javamain-kafkaClient</module>-->
+        <module>javamain-kafkaClient</module>
         <module>javamain-demo</module>
         <module>javamain-java8</module>
         <module>javamain-kafkaClient01000</module>
@@ -25,8 +25,8 @@
         <!--		<module>javamain-mybatis</module>-->
         <module>javamain-springkafka</module>
         <module>javamain-guava</module>
-<!--        <module>javamain-brpcjava01</module>-->
-<!--        <module>javamain-brpcjava02</module>-->
+        <!--        <module>javamain-brpcjava01</module>-->
+        <!--        <module>javamain-brpcjava02</module>-->
         <module>javamain-designPatterns</module>
         <module>javamain-caffeine</module>
         <module>javamain-guide-rpc-framework</module>
@@ -40,6 +40,8 @@
         <module>javamain-springboot</module>
         <module>javamain-common</module>
         <module>javamain-prometheus</module>
+        <module>javamain-logback</module>
+        <module>javamain-log4j</module>
     </modules>
 
 </project>

@@ -9,7 +9,7 @@ public class LocalProducerSendFixCount {
     public static void main(String[] args) throws InterruptedException {
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "127.0.0.1:9092");
+        properties.put("bootstrap.servers", "192.168.70.34:9093");
         properties.put("client.id","dc");
         properties.put("retries", 2); // 发送失败的最大尝试次数
         properties.put("batch.size", "1048576"); // 1MB
@@ -20,6 +20,8 @@ public class LocalProducerSendFixCount {
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String,String> producer = new KafkaProducer<String, String>(properties);
+
+
 
         Long i = 0L;
         while(true){

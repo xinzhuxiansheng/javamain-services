@@ -82,33 +82,27 @@
         </dependency>
 
         <!--        curator begin-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.curator</groupId>-->
-<!--            <artifactId>curator-framework</artifactId>-->
-<!--            <version>${curator.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.curator</groupId>-->
-<!--            <artifactId>curator-client</artifactId>-->
-<!--            <version>${curator.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.curator</groupId>-->
-<!--            <artifactId>curator-recipes</artifactId>-->
-<!--            <version>${curator.version}</version>-->
-<!--            &lt;!&ndash;<exclusions>&ndash;&gt;-->
-<!--            &lt;!&ndash;<exclusion>&ndash;&gt;-->
-<!--            &lt;!&ndash;<groupId>org.apache.zookeeper</groupId>&ndash;&gt;-->
-<!--            &lt;!&ndash;<artifactId>zookeeper</artifactId>&ndash;&gt;-->
-<!--            &lt;!&ndash;</exclusion>&ndash;&gt;-->
-<!--            &lt;!&ndash;</exclusions>&ndash;&gt;-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.curator</groupId>-->
-<!--            <artifactId>curator-test</artifactId>-->
-<!--            <version>${curator.version}</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash;        curator end&ndash;&gt;-->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-test</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <!--        curator end-->
 
         <!--<dependency>-->
         <!--<groupId>org.apache.zookeeper</groupId>-->
@@ -128,6 +122,12 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-test</artifactId>
+            <version>${curator.version}</version>
         </dependency>
 
     </dependencies>
