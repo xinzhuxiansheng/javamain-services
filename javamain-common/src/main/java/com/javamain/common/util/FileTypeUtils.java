@@ -89,9 +89,9 @@ public class FileTypeUtils {
     public static String getFileTypeByMagicNumber(InputStream inputStream) {
         byte[] bytes = new byte[default_check_length];
         try {
-// 获取文件头前三位魔数的二进制
+            // 获取文件头前三位魔数的二进制
             inputStream.read(bytes, 0, bytes.length);
-// 文件头前三位魔数二进制转为16进制
+            // 文件头前三位魔数二进制转为16进制
             String code = bytesToHexString(bytes);
             for (Map.Entry<String, String> item : fileTypeMap.entrySet()) {
                 if (code.equals(item.getKey())) {

@@ -13,7 +13,7 @@ public class LocalDev {
     public static void main(String[] args) throws InterruptedException {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "192.168.70.34:9093");
+        properties.put("bootstrap.servers", "xxx.xxx.xx.xx:9093");
         properties.put("client.id","dc");
         properties.setProperty("group.id", "yzhougid2020101102");
         properties.put("enable.auto.commit", "true");

@@ -9,7 +9,7 @@ public class LocalProducerSendFixCount {
     public static void main(String[] args) throws InterruptedException {
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "192.168.70.34:9093");
+        properties.put("bootstrap.servers", "xxx.xxx.xx.xx:9093");
         properties.put("client.id","dc");
         properties.put("retries", 2); // 发送失败的最大尝试次数
         properties.put("batch.size", "1048576"); // 1MB

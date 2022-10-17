@@ -131,7 +131,7 @@
 
 	<Loggers>
 		<!-- 配置日志的根节点 -->
-		<root level="info">
+		<root level="debug">
 			<appender-ref ref="console_out_appender" />
 			<appender-ref ref="console_err_appender" />
 			<appender-ref ref="trace_appender" />

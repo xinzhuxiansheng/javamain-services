@@ -86,7 +86,7 @@
         <topic>yzhoutp02</topic>
         <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy"/>
         <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
-        <producerConfig>bootstrap.servers=192.168.70.34:9093</producerConfig>
+        <producerConfig>bootstrap.servers=xxx.xxx.xx.xx:9093</producerConfig>
 <!--        <producerConfig>sasl.mechanism=SCRAM-SHA-256</producerConfig>-->
 <!--        <producerConfig>security.protocol=SASL_PLAINTEXT</producerConfig>-->
 <!--        <producerConfig>properties.max.request.size==2097152</producerConfig>-->
@@ -102,7 +102,7 @@
         <topic>yzhoutp02</topic>
         <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy" />
         <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />
-        <producerConfig>bootstrap.servers=192.168.70.34:9093</producerConfig>
+        <producerConfig>bootstrap.servers=xxx.xxx.xx.xx:9093</producerConfig>
         <appender-ref ref="STDOUT" />
     </appender>
 

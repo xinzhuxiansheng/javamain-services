@@ -112,15 +112,15 @@ public class WeightedRoundRobinScheduling {
 
 
     public void init() {
-        Server s1 = new Server("192.168.0.100", 3);//3
-        Server s2 = new Server("192.168.0.101", 2);//2
-        Server s3 = new Server("192.168.0.102", 6);//6
-        Server s4 = new Server("192.168.0.103", 4);//4
-        Server s5 = new Server("192.168.0.104", 1);//1
-        Server s6 = new Server("192.168.0.105", 0);//0
-        Server s7 = new Server("192.168.0.106", 0);//0
-        Server s8 = new Server("192.168.0.107", 0);//0
-        Server s9 = new Server("192.168.0.108", 0);//0
+        Server s1 = new Server("xxx.xxx.0.100", 3);//3
+        Server s2 = new Server("xxx.xxx.0.101", 2);//2
+        Server s3 = new Server("xxx.xxx.0.102", 6);//6
+        Server s4 = new Server("xxx.xxx.0.103", 4);//4
+        Server s5 = new Server("xxx.xxx.0.104", 1);//1
+        Server s6 = new Server("xxx.xxx.0.105", 0);//0
+        Server s7 = new Server("xxx.xxx.0.106", 0);//0
+        Server s8 = new Server("xxx.xxx.0.107", 0);//0
+        Server s9 = new Server("xxx.xxx.0.108", 0);//0
         serverList = new ArrayList<Server>();
         serverList.add(s1);
         serverList.add(s2);
@@ -134,7 +134,7 @@ public class WeightedRoundRobinScheduling {
     }
 
     public void add(int i) {
-        Server s = new Server("192.168.0.1"+i, i-15);
+        Server s = new Server("xxx.xxx.0.1"+i, i-15);
         serverList.add(s);
     }
 
