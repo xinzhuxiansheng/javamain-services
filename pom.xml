@@ -14,7 +14,7 @@
         <module>javamain-elasticsearch</module>
         <module>javamain-JOptSimple</module>
         <module>javamain-netty</module>
-        <!--        <module>javamain-jdk</module>-->
+        <module>javamain-jdk</module>
         <module>javamain-algorithms</module>
         <!--		<module>javamain-annotation</module>	-->
         <module>javamain-kafkaClient</module>
@@ -42,6 +42,11 @@
         <module>javamain-prometheus</module>
         <module>javamain-logback</module>
         <module>javamain-log4j</module>
+        <module>javamain-docker</module>
+        <module>javamain-hutool</module>
+        <module>javamain-sqlParser</module>
+        <module>javamain-akka</module>
+        <module>javamain-metrics</module>
     </modules>
 
 </project>
