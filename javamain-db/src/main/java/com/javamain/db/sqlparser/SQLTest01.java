@@ -1,4 +1,4 @@
-package com.javamain.sqlparser;
+package com.javamain.db.sqlparser;
 
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.expression.*;

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javamain-sqlParser</artifactId>
+    <artifactId>javamain-db</artifactId>
 
 
     <properties>

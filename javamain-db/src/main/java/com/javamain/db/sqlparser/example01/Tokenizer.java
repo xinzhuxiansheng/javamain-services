@@ -1,4 +1,4 @@
-package com.javamain.sqlparser.example01;
+package com.javamain.db.sqlparser.example01;
 
 import lombok.Data;
 

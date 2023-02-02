@@ -11,11 +11,11 @@ public class dianzi215_producer_main {
         Properties properties = new Properties();
         properties.put("bootstrap.servers", "127.0.0.1:9092");
         properties.put("client.id","87704768d320456888e372529598e731");
-        properties.put("retries", 2); // 发送失败的最大尝试次数
-        properties.put("batch.size", "1048576"); // 1MB
+        properties.put("retries", 2);
+        properties.put("batch.size", "1048576");
         properties.put("compression.type", "gzip");
         properties.put("linger.ms", "1000");
-        properties.put("buffer.memory", "67108864");// 64MB
+        properties.put("buffer.memory", "67108864");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 

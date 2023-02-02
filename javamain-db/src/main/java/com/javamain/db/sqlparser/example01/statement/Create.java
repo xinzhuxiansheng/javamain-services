@@ -1,4 +1,4 @@
-package com.javamain.sqlparser.example01.statement;
+package com.javamain.db.sqlparser.example01.statement;
 
 public class Create {
     public String tableName;

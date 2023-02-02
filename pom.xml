@@ -44,9 +44,11 @@
         <module>javamain-log4j</module>
         <module>javamain-docker</module>
         <module>javamain-hutool</module>
-        <module>javamain-sqlParser</module>
+        <module>javamain-db</module>
         <module>javamain-akka</module>
         <module>javamain-metrics</module>
+        <module>javamain-rocketmq</module>
+
     </modules>
 
 </project>
