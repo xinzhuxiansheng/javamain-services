@@ -1,4 +1,4 @@
-package com.javamain.netty.bio;
+package com.javamain.bio;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

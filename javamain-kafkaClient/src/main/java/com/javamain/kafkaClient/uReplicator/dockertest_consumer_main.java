@@ -17,7 +17,7 @@ public class dockertest_consumer_main {
     public static void main(String[] args) {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "10.235.0.52:9092,10.235.0.53:9092,10.235.0.54:9092");
+        properties.put("bootstrap.servers", "xx.xxx.xxx.xxx:9092");
         properties.put("client.id","yzhouclientid01");
         properties.setProperty("group.id", "docker2019120304");
         properties.put("enable.auto.commit", "true");
