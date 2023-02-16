@@ -1,4 +1,4 @@
-package com.javamain.netty.nio.simple;
+package com.javamain.netty.nio.simpleserver;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;

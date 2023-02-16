@@ -1,4 +1,4 @@
-package com.javamain.netty.nio.simple;
+package com.javamain.netty.nio.simpleserver;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -22,7 +22,7 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-
+                        // TODO 添加 channel处理
                     }
                 });
 
