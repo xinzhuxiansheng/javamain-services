@@ -1,7 +1,7 @@
 package com.javamain.annotation.lang;
 
 import com.alibaba.fastjson.JSONObject;
-import com.javamain.jdk.util.RegxUtil;
+import com.javamain.lockfreestack.util.RegxUtil;
 
 public class StringDebug {
 

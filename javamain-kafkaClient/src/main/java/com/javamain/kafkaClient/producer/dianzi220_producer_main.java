@@ -36,6 +36,5 @@ public class dianzi220_producer_main {
             System.out.println(data);
             i++;
         }
-
     }
 }
