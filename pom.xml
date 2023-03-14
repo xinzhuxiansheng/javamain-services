@@ -48,6 +48,7 @@
         <module>javamain-akka</module>
         <module>javamain-metrics</module>
         <module>javamain-rocketmq</module>
+        <module>javamain-jline</module>
 
     </modules>
 
