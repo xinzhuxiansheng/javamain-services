@@ -9,9 +9,12 @@ import java.util.List;
  */
 public class Test01 {
     public static void main(String[] args) {
-        sumTest01();
-        sumTest02();
-        sumTest03();
+//        sumTest01();
+//        sumTest02();
+//        sumTest03();
+
+        System.out.println( Math.ceil(5/2));
+        System.out.println(5/2);
     }
 
     public static void sumTest01() {

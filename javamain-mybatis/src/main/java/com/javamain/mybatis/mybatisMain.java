@@ -1,27 +1,18 @@
 package com.javamain.mybatis;
 
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+import com.javamain.mybatis.common.util.MybatisUtils;
+import com.javamain.mybatis.web.JettyServer;
 
 public class mybatisMain {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
-        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        MybatisUtils.initSqlSession();
 
-        String environment = "development";
-        Properties mybatisConfig = new Properties();
-        mybatisConfig.put("driver","com.mysql.jdbc.Driver");
-        mybatisConfig.put("url","jdbc:mysql://127.0.0.1:3306/yzhoutest?characterEncoding=utf-8&autoReconnect=true");
-        mybatisConfig.put("username","root");
-        mybatisConfig.put("password","123456");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream,environment,mybatisConfig);
-
-
-
+        JettyServer jettyServer = new JettyServer();
+        jettyServer.start();
     }
+
+
+
+
 }

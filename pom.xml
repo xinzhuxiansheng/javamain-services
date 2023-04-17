@@ -22,7 +22,7 @@
         <module>javamain-java8</module>
         <module>javamain-kafkaClient01000</module>
         <module>javamain-monitorAD</module>
-        <!--		<module>javamain-mybatis</module>-->
+        		<module>javamain-mybatis</module>
         <module>javamain-springkafka</module>
         <module>javamain-guava</module>
         <!--        <module>javamain-brpcjava01</module>-->
