@@ -49,6 +49,7 @@
         <module>javamain-metrics</module>
         <module>javamain-rocketmq</module>
         <module>javamain-jline</module>
+        <module>javamain-javassist</module>
 
     </modules>
 
