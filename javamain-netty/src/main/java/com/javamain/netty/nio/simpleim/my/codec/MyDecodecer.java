@@ -17,13 +17,13 @@ public class MyDecodecer extends ByteToMessageDecoder {
     //数据长度 + 数据
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-        if(in.readableBytes() < 4){
+        if(in.readableBytes() < 4){ // 可读字节
             return;
         }
         //数据长度 4 + 10000  9999
-        int i = in.readInt();
+        int i = in.readInt(); // 读取4个字节表示长度
         if(in.readableBytes() < i){
-            in.resetReaderIndex();
+            in.resetReaderIndex(); //
             return;
         }
         byte[] data = new byte[i];//10000

@@ -53,7 +53,3 @@ public class WaitNotify {
     }
 }
 
-// thread1 is ready
-// thread2 is ready
-// thread2 is waiting
-// thread2 is awake

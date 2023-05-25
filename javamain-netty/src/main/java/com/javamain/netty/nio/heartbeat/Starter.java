@@ -1,6 +1,7 @@
 package com.javamain.netty.nio.heartbeat;
 
-import com.javamain.netty.nio.simpleim.base.server.DiscardServer;
+
+import com.javamain.netty.nio.heartbeat.server.DiscardServer;
 
 public class Starter {
 

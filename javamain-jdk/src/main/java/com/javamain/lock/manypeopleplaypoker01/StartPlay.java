@@ -3,7 +3,6 @@ package com.javamain.lock.manypeopleplaypoker01;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -31,10 +30,6 @@ public class StartPlay {
             getmoQueue.add(String.valueOf(i));
         }
 
-        // 随机从几开始摸排
-        Random r = new Random();
-        int pIndex = r.nextInt(3) + 1;
-        System.out.println(String.format("从%开始", pIndex));
 
 
     }

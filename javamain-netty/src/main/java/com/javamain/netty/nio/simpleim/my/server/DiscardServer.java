@@ -1,14 +1,11 @@
 package com.javamain.netty.nio.simpleim.my.server;
 
+import com.javamain.netty.nio.simpleim.my.codec.MyDecodecer;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import netty.my.codec.MyDecodecer;
 
 import java.nio.charset.Charset;
 
@@ -53,9 +50,16 @@ public class DiscardServer {
             // In this example, this does not happen, but you can do that to gracefully
             // shut down your server.
             f.channel().closeFuture().sync();
+            f.channel().close().addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                    workerGroup.shutdownGracefully();
+                    bossGroup.shutdownGracefully();
+                }
+            });
         } finally {
-            workerGroup.shutdownGracefully();
-            bossGroup.shutdownGracefully();
+//            workerGroup.shutdownGracefully();
+//            bossGroup.shutdownGracefully();
         }
     }
 

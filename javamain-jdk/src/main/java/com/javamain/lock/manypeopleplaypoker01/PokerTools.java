@@ -17,8 +17,8 @@ public class PokerTools {
                 pokers.add(new Poker(colors[i], nums[j]));
             }
         }
-        pokers.add(new Poker("小王", "黑"));
-        pokers.add(new Poker("大王", "红"));
+//        pokers.add(new Poker("小王", "黑"));
+//        pokers.add(new Poker("大王", "红"));
         //洗牌
         LinkedList shuffledpokers = new LinkedList<Poker>();
         while (shuffledpokers.size() < pokers.size()) {

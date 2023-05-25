@@ -14,7 +14,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2023/2/16
  */
 public class LockSummary_ABC {
-
     private Lock lock = new ReentrantLock();
 
     private Condition a = lock.newCondition();

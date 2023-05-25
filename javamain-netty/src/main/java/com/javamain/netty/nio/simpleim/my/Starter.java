@@ -1,6 +1,7 @@
 package com.javamain.netty.nio.simpleim.my;
 
-import netty.my.server.DiscardServer;
+
+import com.javamain.netty.nio.simpleim.my.server.DiscardServer;
 
 /**
  * @description:

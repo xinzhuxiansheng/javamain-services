@@ -23,13 +23,13 @@ public class UploadFileHandler  extends ChannelInboundHandlerAdapter {
             FileDto dto = (FileDto) msg;
             if(dto.getCommand() == 1){
                 //创建文件
-                File file = new File("C://"+dto.getFileName());
+                File file = new File("D://"+dto.getFileName());
                 if(!file.exists()){
                     file.createNewFile();
                 }
             }else if(dto.getCommand() == 2){
                 //写入文件
-                save2File("C://"+dto.getFileName(),dto.getBytes());
+                save2File("D://"+dto.getFileName(),dto.getBytes());
             }
         }
 
