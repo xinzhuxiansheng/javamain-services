@@ -1,4 +1,4 @@
-package com.javamain.flash.netty.chapter04;
+package com.javamain.flash.netty.chapter06;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -20,7 +20,7 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-
+                        nioSocketChannel.pipeline().addLast(new FirstServerHandler());
                     }
                 })
                 .handler(new ChannelInitializer<NioServerSocketChannel>() {
@@ -29,23 +29,8 @@ public class NettyServer {
                         System.out.println("服务端启动中");
                     }
                 });
-
-        // serverBootstrap.bind(8000);
-
-        // 添加 GenericFutureListener 监听器
-//        serverBootstrap.bind(8000).addListener(new GenericFutureListener<Future<? super Void>>() {
-//            @Override
-//            public void operationComplete(Future<? super Void> future) throws Exception {
-//                if (future.isSuccess()) {
-//                    System.out.println("端口绑定成功！ ");
-//                } else {
-//                    System.out.println("端口绑定失败！");
-//                }
-//            }
-//        });
-
         // 添加 bind() 方法 来处理 port 递增的逻辑
-        bind(serverBootstrap, 1000);
+        bind(serverBootstrap, 8000);
     }
 
     private static void bind(final ServerBootstrap serverBootstrap, int port) {
