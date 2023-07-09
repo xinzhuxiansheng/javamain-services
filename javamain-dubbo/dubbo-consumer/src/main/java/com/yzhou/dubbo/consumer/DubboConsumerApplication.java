@@ -17,5 +17,4 @@ public class DubboConsumerApplication {
         String message = "yzhou";
         System.out.println(providerService.sayHello(message));
     }
-
 }
