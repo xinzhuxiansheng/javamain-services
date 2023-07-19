@@ -46,6 +46,7 @@
         <module>javamain-javassist</module>
         <module>javamain-redis</module>
         <module>javamain-dubbo</module>
+        <module>javamain-micrometer</module>
 
         <!--已经注释-->
         <!--        <module>javamain-brpcjava01</module>-->
