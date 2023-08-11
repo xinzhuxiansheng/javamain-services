@@ -10,7 +10,7 @@ public class vm01_producer_main {
     public static void main(String[] args) throws InterruptedException {
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9093");
+        properties.put("bootstrap.servers", "43.138.2.215:9092");
         properties.put("retries", 2); // 发送失败的最大尝试次数
         properties.put("batch.size", "1048576"); // 1MB
         properties.put("compression.type", "gzip");

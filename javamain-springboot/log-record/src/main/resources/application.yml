@@ -1,0 +1,34 @@
+#配置端口和path路径
+server:
+  port: 7076
+spring:
+  profiles:
+    active: local
+  jackson:
+    time-zone: GMT+8
+  mvc:
+    servlet:
+      load-on-startup: 20
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 450MB
+      max-request-size: 500MB
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+

@@ -1,12 +1,7 @@
 package com.javamain.proxy.p01;
 
-import sun.misc.ProxyGenerator;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Proxy;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class TestMain {
     /**
@@ -31,24 +26,24 @@ public class TestMain {
         proxy.move();
 
         // 保存代理类的字节码到文件
-        saveProxyClassToFile("$Proxy0.class");
+        //saveProxyClassToFile("$Proxy0.class");
     }
 
     /**
      * sun.misc.ProxyGenerator 类在 JDK 9 及更高版本中已被移除。在这些版本中，您需要使用第三方库，如 ASM 或 Javassist，生成动态代理类的字节码
      */
-    private static void saveProxyClassToFile(String fileName) {
-        byte[] classBytes = ProxyGenerator.generateProxyClass(
-                "$Proxy0",
-                new Class<?>[]{Moveable.class}
-        );
-
-        Path outputPath = Paths.get(fileName);
-        try (FileOutputStream fos = new FileOutputStream(outputPath.toFile())) {
-            fos.write(classBytes);
-            System.out.println("Proxy class saved to: " + outputPath.toAbsolutePath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private static void saveProxyClassToFile(String fileName) {
+//        byte[] classBytes = ProxyGenerator.generateProxyClass(
+//                "$Proxy0",
+//                new Class<?>[]{Moveable.class}
+//        );
+//
+//        Path outputPath = Paths.get(fileName);
+//        try (FileOutputStream fos = new FileOutputStream(outputPath.toFile())) {
+//            fos.write(classBytes);
+//            System.out.println("Proxy class saved to: " + outputPath.toAbsolutePath());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
