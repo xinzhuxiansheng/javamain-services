@@ -47,6 +47,7 @@
         <module>javamain-redis</module>
         <module>javamain-dubbo</module>
         <module>javamain-micrometer</module>
+        <module>javamain-openjob</module>
 
         <!--已经注释-->
         <!--        <module>javamain-brpcjava01</module>-->

@@ -5,7 +5,7 @@ import com.yzhou.logrecord.log03.LogStrategy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NamespaceStrategy implements LogStrategy {
+public class NamespaceLogStrategy implements LogStrategy {
     @Override
     public void save(LogEntry logEntry) {
         System.out.println(logEntry.getSummaryTemplate().format(logEntry.getParams()));

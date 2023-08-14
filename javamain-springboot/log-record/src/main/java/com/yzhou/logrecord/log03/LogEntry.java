@@ -1,6 +1,6 @@
 package com.yzhou.logrecord.log03;
 
-import com.yzhou.logrecord.log03.namespace.NamespaceStrategy;
+import com.yzhou.logrecord.log03.namespace.NamespaceLogStrategy;
 import com.yzhou.logrecord.modal.User;
 import lombok.Getter;
 
@@ -51,7 +51,7 @@ public class LogEntry {
     public LogEntry moduleType(ModuleType moduleType) {
         switch (moduleType.name()) {
             case "NAMESPACE":
-                this.logStrategy = new NamespaceStrategy();
+                this.logStrategy = new NamespaceLogStrategy();
                 break;
             default:
                 throw new IllegalArgumentException("Unknown targetType: " + moduleType.name());
@@ -63,7 +63,6 @@ public class LogEntry {
         return summaryTemplate;
     }
 
-    // Save method which will have logic to write log based on targetType
     public void save() {
         if (logStrategy == null) {
             System.out.println("aaaa");
