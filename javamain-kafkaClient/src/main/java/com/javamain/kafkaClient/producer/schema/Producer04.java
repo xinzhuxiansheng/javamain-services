@@ -80,10 +80,10 @@ public class Producer04 {
         Schema schema = parser.parse(userSchema);
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "192.168.64.112:9092");
+        properties.put("bootstrap.servers", "192.168.64.xxx:9092");
         properties.put("key.serializer", StringSerializer.class.getName());
         properties.put("value.serializer", KafkaAvroSerializer.class.getName());
-        properties.put("schema.registry.url", "http://192.168.64.112:8081");
+        properties.put("schema.registry.url", "http://192.168.64.xxx:8081");
         org.apache.kafka.clients.producer.Producer<String, GenericRecord> producer = new KafkaProducer<String, GenericRecord>(properties);
         Long i = 0L;
         while (true) {

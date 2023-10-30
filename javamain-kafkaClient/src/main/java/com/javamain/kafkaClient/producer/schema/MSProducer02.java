@@ -14,8 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class Producer02 {
+public class MSProducer02 {
     public static void main(String[] args) throws InterruptedException {
+
+        System.out.println("args 0: " + args[0]);
+        System.out.println("args 1: " + args[1]);
+        System.out.println("args 2: " + args[2]);
+
         String userSchema = "{\n" +
                 "  \"type\": \"record\",\n" +
                 "  \"name\": \"Record\",\n" +
@@ -99,16 +104,16 @@ public class Producer02 {
                 "    }\n" +
                 "  ]\n" +
                 "}";
-        org.apache.avro.Schema.Parser parser = new org.apache.avro.Schema.Parser();
-        org.apache.avro.Schema schema = parser.parse(userSchema);
+        Schema.Parser parser = new Schema.Parser();
+        Schema schema = parser.parse(userSchema);
 
         Properties properties = new Properties();
         //properties.put("bootstrap.servers", "192.168.64.xxx:9092");
-        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("bootstrap.servers", args[0]);
         properties.put("key.serializer", StringSerializer.class.getName());
         properties.put("value.serializer", KafkaAvroSerializer.class.getName());
         //properties.put("schema.registry.url", "http://192.168.64.xxx:8081");
-        properties.put("schema.registry.url", "http://localhost:7081");
+        properties.put("schema.registry.url", args[1]);
         org.apache.kafka.clients.producer.Producer<String, GenericRecord> producer = new KafkaProducer<String, GenericRecord>(properties);
         Long i = 0L;
         while (true) {
@@ -151,7 +156,7 @@ public class Producer02 {
             avroRecord.put("arr", arrList);
 
 
-            producer.send(new ProducerRecord<String, GenericRecord>("yzhoutp02", avroRecord), new Callback() {
+            producer.send(new ProducerRecord<String, GenericRecord>(args[2], avroRecord), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if (null == recordMetadata) {
