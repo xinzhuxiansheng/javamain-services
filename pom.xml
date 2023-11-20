@@ -55,6 +55,7 @@
         <module>javamain-scalatest</module>
         <module>javamain-asm</module>
         <module>javamain-javaagent</module>
+        <module>javamain-antlr</module>
         <!--已经注释-->
         <!--        <module>javamain-brpcjava01</module>-->
         <!--        <module>javamain-brpcjava02</module>-->
