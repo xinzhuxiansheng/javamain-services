@@ -31,7 +31,7 @@ import java.util.List;
 public class S3Test {
     private static Logger logger = LoggerFactory.getLogger(S3Test.class);
 
-    private String endPoint = "xxx.xxx.xxx.xxx:32121";
+    private String endPoint = "xx.xxx.xxx.xxx:32121";
     private String accessKey = "minio";
     private String secretKey = "minio123";
     private String bucketName = "yzhou";
@@ -182,7 +182,7 @@ public class S3Test {
 
     @Test
     public void uploadFile() {
-        File file = new File("/Users/yiche/Tmp/flink-demo-1.0.1-SNAPSHOT-1643037011651.jar");
+        File file = new File("/Users/xx/Tmp/flink-demo-1.0.1-SNAPSHOT-1643037011651.jar");
         PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName
                 , "local/app/fm-t34ep0sjvd/flink-demo-1.0.1-SNAPSHOT-1644547740111.jar", file);
         //设置权限属性等-非必需
@@ -241,7 +241,7 @@ public class S3Test {
 
     @Test
     public void download() {
-        String filePath = "/Users/yiche/Tmp/test/flink-demo-1.0.1-SNAPSHOT-1644547740111.jar";
+        String filePath = "/Users/xxx/Tmp/test/flink-demo-1.0.1-SNAPSHOT-1644547740111.jar";
         GetObjectRequest request = new GetObjectRequest(bucketName, "local/app/fm-t34ep0sjvd/flink-demo-1.0.1-SNAPSHOT-1644547740111.jar");
         //将对象存在文件中，并返回对象的元数据
         ObjectMetadata meta = client.getObject(request, new File(filePath));

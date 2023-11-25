@@ -1,7 +1,6 @@
 package com.javamain.timingwheel;
 
-import net.jcip.annotations.NotThreadSafe;
-
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
