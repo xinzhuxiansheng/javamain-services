@@ -12,7 +12,7 @@
         <module>javamain-zookeeperFeatures</module>
         <module>javamain-elasticsearch</module>
         <module>javamain-JOptSimple</module>
-        <module>javamain-netty</module>
+<!--        <module>javamain-netty</module>-->
         <module>javamain-jdk</module>
         <module>javamain-algorithms</module>
         <module>javamain-kafkaClient</module>
@@ -52,11 +52,12 @@
         <module>javamain-hazelcast</module>
         <module>javamain-calcite</module>
         <module>javamain-timingWheel</module>
-        <module>javamain-scalatest</module>
-        <module>javamain-asm</module>
-        <module>javamain-javaagent</module>
-        <module>javamain-antlr</module>
-        <module>javamain-s3</module>
+        <module>javamain-webservice</module>
+<!--        <module>javamain-scalatest</module>-->
+<!--        <module>javamain-asm</module>-->
+<!--        <module>javamain-javaagent</module>-->
+<!--        <module>javamain-antlr</module>-->
+<!--        <module>javamain-s3</module>-->
         <!--已经注释-->
         <!--        <module>javamain-brpcjava01</module>-->
         <!--        <module>javamain-brpcjava02</module>-->

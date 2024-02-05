@@ -1,8 +1,7 @@
 package com.javamain.kafkaClient.kafkaAdminClient;
 
-import com.javamain.kafkaClient.common.Kafka_Info;
-import org.apache.kafka.clients.admin.*;
 import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.*;
 import org.apache.kafka.common.KafkaFuture;
 
 import java.util.*;
@@ -20,7 +19,7 @@ public class ConsumerGroups {
 
     public static org.apache.kafka.clients.admin.AdminClient initAdminClient(){
         Properties properties = new Properties();
-        properties.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, Kafka_Info.kafka_brokerservers);
+        properties.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         properties.put(AdminClientConfig.REQUEST_TIMEOUT_MS_CONFIG, 30000);
         org.apache.kafka.clients.admin.AdminClient client = org.apache.kafka.clients.admin.AdminClient.create(properties);
         return client;

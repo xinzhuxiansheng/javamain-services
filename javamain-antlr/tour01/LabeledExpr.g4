@@ -1,4 +1,4 @@
-grammar LabeledExpr; // rename to distinguish from Expr.g4
+grammar LabeledExpr; // rename to distinguish from Hello.g4
 
 prog:   stat+ ;
 

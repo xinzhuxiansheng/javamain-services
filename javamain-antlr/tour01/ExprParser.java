@@ -1,4 +1,4 @@
-// Generated from Expr.g4 by ANTLR 4.13.1
+// Generated from Hello.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -74,7 +74,7 @@ public class ExprParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Expr.g4"; }
+	public String getGrammarFileName() { return "Hello.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

@@ -1,4 +1,4 @@
-// Generated from Expr.g4 by ANTLR 4.13.1
+// Generated from Hello.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -87,7 +87,7 @@ public class ExprLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Expr.g4"; }
+	public String getGrammarFileName() { return "Hello.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
