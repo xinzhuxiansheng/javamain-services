@@ -43,9 +43,6 @@ public class ConsumerMain {
                 System.out.println(record.value());
             }
         }
-
-
     }
-
 }
 
