@@ -63,6 +63,7 @@
         <!--        <module>javamain-brpcjava02</module>-->
         <!--		<module>javamain-annotation</module>	-->
         <!--        <module>javamain-elasticJobA</module>       -->
+        <module>javamain-pekko</module>
 
     </modules>
 
