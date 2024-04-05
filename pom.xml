@@ -64,6 +64,7 @@
         <!--		<module>javamain-annotation</module>	-->
         <!--        <module>javamain-elasticJobA</module>       -->
         <module>javamain-pekko</module>
+        <module>javamain-flink</module>
 
     </modules>
 
