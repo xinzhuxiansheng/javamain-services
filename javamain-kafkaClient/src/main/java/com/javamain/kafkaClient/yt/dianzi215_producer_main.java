@@ -1,4 +1,4 @@
-package com.javamain.kafkaClient.producer;
+package com.javamain.kafkaClient.yt;
 
 import org.apache.kafka.clients.producer.*;
 
@@ -10,7 +10,6 @@ public class dianzi215_producer_main {
 
         Properties properties = new Properties();
         properties.put("bootstrap.servers", "127.0.0.1:9092");
-        properties.put("client.id","87704768d320456888e372529598e731");
         properties.put("retries", 2);
         properties.put("batch.size", "1048576");
         properties.put("compression.type", "gzip");
@@ -19,23 +18,29 @@ public class dianzi215_producer_main {
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
-        Producer<String,String> producer = new KafkaProducer<String, String>(properties);
+        Producer<String, String> producer = new KafkaProducer<String, String>(properties);
 
-        Long i = 0L;
-        while(true){
-            String data = i+"\\t2\\tAndroid\\t869830039316690\\thuawei\\t0\\tarmeabi-v7a\\t9\\t10.1.5\\tHWI-AL00\\tHUAWEI";
-            producer.send(new ProducerRecord<String, String>("yzhoutp01",data), new Callback() {
+        Integer max = 1000000;
+        Integer i = 0;
+        while (true) {
+            String data = "{\"id\":1,\"name\":\"yzhou\",\"money\":2,\"dtime01\":\"2024-04-18 12:00:00\"}";
+            producer.send(new ProducerRecord<String, String>("yzhoujsontp11", data), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                    if(null == recordMetadata){
+                    if (null == recordMetadata) {
                         e.printStackTrace();
                     }
                 }
             });
-            Thread.currentThread().sleep(10000L);
-            System.out.println(data);
+//            Thread.currentThread().sleep(10000L);
+//            System.out.println(data);
             i++;
+            if (i >= max) {
+                break;
+            }
         }
+
+        System.out.println("结束");
 
     }
 }
