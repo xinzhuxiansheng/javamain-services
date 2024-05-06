@@ -1,4 +1,4 @@
-package com.javamain.flink;
+package com.javamain.flink.jobsubmit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class SubmitJob {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
