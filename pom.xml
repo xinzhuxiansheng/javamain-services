@@ -12,7 +12,7 @@
         <module>javamain-zookeeperFeatures</module>
         <module>javamain-elasticsearch</module>
         <module>javamain-JOptSimple</module>
-<!--        <module>javamain-netty</module>-->
+        <module>javamain-netty</module>
         <module>javamain-jdk</module>
         <module>javamain-algorithms</module>
         <module>javamain-kafkaClient</module>
