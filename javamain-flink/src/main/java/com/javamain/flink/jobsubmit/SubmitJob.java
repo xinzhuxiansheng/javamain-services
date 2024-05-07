@@ -2,15 +2,14 @@ package com.javamain.flink.jobsubmit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import io.fabric8.kubernetes.api.model.ObjectMeta;
+import io.fabric8.kubernetes.api.model.*;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import org.apache.flink.kubernetes.operator.api.FlinkDeployment;
 import org.apache.flink.kubernetes.operator.api.spec.*;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SubmitJob {
 
@@ -23,7 +22,7 @@ public class SubmitJob {
 
         ObjectMeta objectMeta = new ObjectMeta();
         objectMeta.setNamespace("flink");
-        objectMeta.setName("basic-application-deployment-only-ingress");
+        objectMeta.setName("basic-application-deployment-only-ingress-tz");
         flinkDeployment.setMetadata(objectMeta);
 
         FlinkDeploymentSpec flinkDeploymentSpec = new FlinkDeploymentSpec();
@@ -34,7 +33,7 @@ public class SubmitJob {
         ingressSpec.setTemplate("flink.k8s.io/{{namespace}}/{{name}}(/|$)(.*)");
         ingressSpec.setClassName("nginx");
         Map<String, String> annotations = new HashMap<>();
-        annotations.put("nginx.ingress.kubernetes.io/rewrite-target","/$2");
+        annotations.put("nginx.ingress.kubernetes.io/rewrite-target", "/$2");
         ingressSpec.setAnnotations(annotations);
         flinkDeploymentSpec.setIngress(ingressSpec);
 
@@ -43,11 +42,24 @@ public class SubmitJob {
         flinkDeploymentSpec.setFlinkConfiguration(flinkConfiguration);
         flinkDeploymentSpec.setServiceAccount("flink");
         JobManagerSpec jobManagerSpec = new JobManagerSpec();
-        jobManagerSpec.setResource(new Resource(1.0, "2048m","2G"));
+        jobManagerSpec.setResource(new Resource(1.0, "2048m", "2G"));
         flinkDeploymentSpec.setJobManager(jobManagerSpec);
         TaskManagerSpec taskManagerSpec = new TaskManagerSpec();
-        taskManagerSpec.setResource(new Resource(1.0, "2048m","2G"));
+        taskManagerSpec.setResource(new Resource(1.0, "2048m", "2G"));
         flinkDeploymentSpec.setTaskManager(taskManagerSpec);
+
+        PodTemplateSpec podTemplateSpec = new PodTemplateSpec();
+        PodSpec podSpec = new PodSpec();
+        Container container = new Container();
+        container.setName("flink-main-container"); // container name 不可修改
+        EnvVar envVar01 = new EnvVar();
+        envVar01.setName("TZ");
+        envVar01.setValue("Asia/Shanghai");
+        container.setEnv(Collections.singletonList(envVar01));
+        podSpec.setContainers(Collections.singletonList(container));
+        podTemplateSpec.setSpec(podSpec);
+        flinkDeploymentSpec.setPodTemplate(podTemplateSpec);
+
         flinkDeployment.setSpec(flinkDeploymentSpec);
         flinkDeployment
                 .getSpec()
