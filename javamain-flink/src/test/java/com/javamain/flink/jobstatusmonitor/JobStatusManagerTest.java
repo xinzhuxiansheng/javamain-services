@@ -3,14 +3,17 @@ package com.javamain.flink.jobstatusmonitor;
 import com.javamain.flink.jobstatus.JobStatusManager;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class JobStatusManagerTest {
 
     @Test
-    public void testJobStatusMonitor() throws InterruptedException {
+    public void testJobStatusMonitor() throws IOException {
         JobStatusManager jobStatusManager = new JobStatusManager();
         jobStatusManager.startJobStatusMonitor();
         System.out.println("jobStatusManager start ...");
 
-        Thread.sleep(1000000);  // 模拟长期运行场景
+        System.out.println("press ENTER to terminate");
+        System.in.read();
     }
 }

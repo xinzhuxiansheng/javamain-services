@@ -2,6 +2,7 @@ package com.javamain.flink.jobstatus;
 
 import com.javamain.flink.jobstatus.enumeration.FlinkCRDTypeEnum;
 import com.javamain.flink.jobstatus.k8s.FlinkDeploymentCRD;
+import com.javamain.flink.jobstatus.k8s.FlinkSessionJobCRD;
 import com.javamain.flink.jobstatus.k8s.FlinkonK8sUtils;
 import com.javamain.flink.jobstatus.k8s.JobDeployConstants;
 import org.slf4j.Logger;
@@ -22,7 +23,11 @@ public class JobStatusManager {
         return true;
     }
 
+    /*
+        启动 watch时，也会触发 ADDED 事件，所以它弥补了，服务重启时,Job 状态的监听捕获丢失数据。
+     */
     public void startJobStatusMonitor() {
+
         FlinkonK8sUtils.watchFlinkJobStatus(
                 JobDeployConstants.Name_Space,
                 FlinkDeploymentCRD.class,
@@ -34,10 +39,26 @@ public class JobStatusManager {
 
                         },
                         (flinkCRDTypeEnum) -> {
-                            unregisterJobWatcher((FlinkCRDTypeEnum) flinkCRDTypeEnum);
+                            unregisterJobWatcher(flinkCRDTypeEnum);
                         }
                 ));
         registerJobWatcher(FlinkCRDTypeEnum.FLINKDEPLOYMENT);
+
+        FlinkonK8sUtils.watchFlinkJobStatus(
+                JobDeployConstants.Name_Space,
+                FlinkSessionJobCRD.class,
+                new JobStatusWatch<FlinkDeploymentCRD>(
+                        FlinkCRDTypeEnum.FLINKSESSIONJOB,
+                        (action, flinkDeployment) -> {
+                            System.out.println("Received event: " + action + " for pod: ");
+                            // 这里可以通知外部系统或更新数据库等操作
+
+                        },
+                        (flinkCRDTypeEnum) -> {
+                            unregisterJobWatcher(flinkCRDTypeEnum);
+                        }
+                ));
+        registerJobWatcher(FlinkCRDTypeEnum.FLINKSESSIONJOB);
     }
 
     private void registerJobWatcher(FlinkCRDTypeEnum flinkCRDTypeEnum) {
@@ -48,6 +69,4 @@ public class JobStatusManager {
     private void unregisterJobWatcher(FlinkCRDTypeEnum flinkCRDTypeEnum) {
         this.jobWatcherMap.remove(flinkCRDTypeEnum);
     }
-
-
 }
