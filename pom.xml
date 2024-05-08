@@ -65,6 +65,7 @@
         <!--        <module>javamain-elasticJobA</module>       -->
         <module>javamain-pekko</module>
         <module>javamain-flink</module>
+        <module>javamain-k8sOperator</module>
 
     </modules>
 

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-client-test-deployment
+  labels:
+    app: k8s-client-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-client-test
+  template:
+    metadata:
+      labels:
+        app: k8s-client-test
+    spec:
+      containers:
+        - name: k8s-client-test
+          image: harbor01.io/yzhou/k8s-client-test:0.0.1
