@@ -1,4 +1,4 @@
-package com.javamain.operator.flinkingresseye.way1;
+package com.javamain.operator.flinkingresseye.way2;
 
 import io.javaoperatorsdk.operator.Operator;
 

@@ -6,7 +6,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>javamain-k8s</artifactId>
+  <artifactId>javamain-k8sOperator</artifactId>
   <version>1.0-SNAPSHOT</version>
   <build>
     <resources>
@@ -51,7 +51,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.javamain.k8s.Main</mainClass>
+                  <mainClass>com.javamain.operator.flinkingresseye.way1.Runner</mainClass>
                 </transformer>
                 <transformer>
                   <resource>reference.conf</resource>
@@ -64,9 +64,9 @@
     </plugins>
   </build>
   <properties>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 </project>
 

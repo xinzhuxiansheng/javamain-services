@@ -1,4 +1,4 @@
-package com.javamain.operator.flinkingresseye.way1;
+package com.javamain.operator.flinkingresseye.way2;
 
 import com.javamain.operator.flinkingresseye.K8sClientSingleton;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ControllerConfiguration(namespaces = Constants.WATCH_ALL_NAMESPACES)
-public class FlinkServiceReconciler implements Reconciler<Service>, ErrorStatusHandler<Service>, Cleaner<Service> {
-    private static final Logger logger = LoggerFactory.getLogger(FlinkServiceReconciler.class);
+public class FlinkIngressReconciler implements Reconciler<Service>, ErrorStatusHandler<Service>, Cleaner<Service> {
+    private static final Logger logger = LoggerFactory.getLogger(FlinkIngressReconciler.class);
 
     @Override
     public UpdateControl<Service> reconcile(Service service, Context<Service> context) {
@@ -143,7 +143,6 @@ public class FlinkServiceReconciler implements Reconciler<Service>, ErrorStatusH
                 .withSpec(ingressSpec)
                 .build();
     }
-
 
     @Override
     public DeleteControl cleanup(Service service, Context<Service> context) {
