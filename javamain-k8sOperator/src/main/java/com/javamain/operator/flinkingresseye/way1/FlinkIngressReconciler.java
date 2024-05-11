@@ -148,13 +148,18 @@ public class FlinkIngressReconciler implements Reconciler<Service>, ErrorStatusH
     public DeleteControl cleanup(Service service, Context<Service> context) {
         if (isFlinkServiceAndCheckLabelsAppIsValid(service)) {
             String namespace = service.getMetadata().getNamespace();
+            String serviceName = service.getMetadata().getName();
+            if (!serviceName.contains("-rest")) {
+                return DeleteControl.defaultDelete();
+            }
             String jobName = getServiceLabelValue(service, "app");
             Ingress existingIngress = getIngressByName(namespace, jobName).get();
             K8sClientSingleton.getKubernetesClient().
                     network().
                     v1().ingresses().inNamespace(namespace)
                     .withName(jobName)
-                    .delete();
+                    .delete(existingIngress);
+            logger.info("ingress was deleted");
         }
         // 注意：若不符合过滤条件，则按照 默认删除方式，确保移除 finalizer
         return DeleteControl.defaultDelete();
