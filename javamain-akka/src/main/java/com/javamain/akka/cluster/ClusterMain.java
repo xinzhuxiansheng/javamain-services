@@ -4,6 +4,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.management.javadsl.AkkaManagement;
+import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
 /*
@@ -12,9 +13,27 @@ import com.typesafe.config.ConfigFactory;
  */
 public class ClusterMain {
     public static void main(String[] args) {
-        ActorSystem system = ActorSystem.create("ClusterSystem", ConfigFactory.load());
+
+        int port = 2551;
+
+        // Override the configuration of the port
+        Config config = ConfigFactory.parseString("akka.cluster.roles = [worker]")
+                .withFallback(ConfigFactory.load());
+        ActorSystem system = ActorSystem.create("ClusterSystem", config);
         AkkaManagement.get(system).start();
-        ActorRef leaderAndMemberListener = system.actorOf(Props.create(LeaderAndMemberListener.class), "LeaderAndMemberListener");
+
+        // 创建事件总线 Actor
+//        ActorRef eventBus = system.actorOf(Props.create(EventBus.class), "eventBus");
+        //ActorRef leaderAndMemberListener = system.actorOf(
+        //        Props.create(LeaderAndMemberListener.class, eventBus), "LeaderAndMemberListener");
+
+        // 创建订阅者 Actor
+        ActorRef leaderSubscriber = system.actorOf(Props.create(LeaderSubscriber.class), "leaderSubscriber");
+//        eventBus.tell(new Subscribe(subscriber), subscriber);
+        ActorRef workerActor = system.actorOf(Props.create(WorkerActor.class), "workerActor");
+        System.out.println(workerActor.path().toString());
+
+
     }
 }
 

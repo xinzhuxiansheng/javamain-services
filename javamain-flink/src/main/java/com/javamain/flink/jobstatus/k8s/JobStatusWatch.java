@@ -1,6 +1,7 @@
-package com.javamain.flink.jobstatus;
+package com.javamain.flink.jobstatus.k8s;
 
 
+import com.javamain.flink.jobstatus.akkacluster.JobStatusManager;
 import com.javamain.flink.jobstatus.enumeration.FlinkCRDTypeEnum;
 import io.fabric8.kubernetes.client.Watcher;
 import io.fabric8.kubernetes.client.WatcherException;

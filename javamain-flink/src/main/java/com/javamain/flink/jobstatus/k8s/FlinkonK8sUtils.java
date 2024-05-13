@@ -1,6 +1,5 @@
 package com.javamain.flink.jobstatus.k8s;
 
-import com.javamain.flink.jobstatus.JobStatusWatch;
 import io.fabric8.kubernetes.client.CustomResource;
 import org.apache.flink.kubernetes.operator.api.status.FlinkDeploymentStatus;
 import org.slf4j.Logger;
@@ -23,8 +22,8 @@ public class FlinkonK8sUtils {
         listFlinkCRD(JobDeployConstants.Name_Space, FlinkSessionJobCRD.class);
     }
 
-    public static <T extends CustomResource> void watchFlinkJobStatus(String namespace, Class<T> resourceClass, JobStatusWatch jobStatusWatch){
-        K8sClientSingleton.getKubernetesClient()
+    public static <T extends CustomResource> io.fabric8.kubernetes.client.Watch  watchFlinkJobStatus(String namespace, Class<T> resourceClass, JobStatusWatch jobStatusWatch){
+        return K8sClientSingleton.getKubernetesClient()
                 .resources(resourceClass)
                 .inNamespace(namespace)
                 .watch(jobStatusWatch);

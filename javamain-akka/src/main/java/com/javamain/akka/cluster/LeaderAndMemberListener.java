@@ -1,10 +1,18 @@
 package com.javamain.akka.cluster;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 import akka.cluster.Cluster;
 import akka.cluster.ClusterEvent.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LeaderAndMemberListener extends AbstractActor {
+    private static final Logger logger = LoggerFactory.getLogger(LeaderAndMemberListener.class);
+    private ActorRef eventBus;
+    public LeaderAndMemberListener(ActorRef eventBus){
+        this.eventBus = eventBus;
+    }
     private final Cluster cluster = Cluster.get(getContext().getSystem());
 
     @Override
@@ -22,6 +30,8 @@ public class LeaderAndMemberListener extends AbstractActor {
         return receiveBuilder()
                 .match(LeaderChanged.class, leaderChanged -> {
                     System.out.println("Leader changed to: " + leaderChanged.getLeader());
+                    //eventBus.tell(new EventMessage("New leader is " + leaderChanged.leader()), self());
+
                 })
                 .match(MemberUp.class, memberUp -> {
                     System.out.println("Member is Up: " + memberUp.member());
