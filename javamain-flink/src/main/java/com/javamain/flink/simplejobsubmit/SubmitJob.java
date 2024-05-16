@@ -1,4 +1,4 @@
-package com.javamain.flink.jobsubmit;
+package com.javamain.flink.simplejobsubmit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
