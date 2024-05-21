@@ -55,7 +55,7 @@
         <module>javamain-webservice</module>
 <!--        <module>javamain-scalatest</module>-->
 <!--        <module>javamain-asm</module>-->
-<!--        <module>javamain-javaagent</module>-->
+        <module>javamain-javaagent</module>
 <!--        <module>javamain-antlr</module>-->
 <!--        <module>javamain-s3</module>-->
         <!--已经注释-->
