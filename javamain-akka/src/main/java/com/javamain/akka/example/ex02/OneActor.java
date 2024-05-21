@@ -34,7 +34,8 @@ public class OneActor extends AbstractActor {
         // 定义Actor管理仓库
         ActorSystem actorSystem = ActorSystem.create("yzhou");
         // 把OneActor放入仓库
-        ActorRef actorRef = actorSystem.actorOf(Props.create(OneActor.class, OneActor::new), "one_actor");
+        ActorRef actorRef = actorSystem.actorOf(Props.create(OneActor.class, OneActor::new),
+                "one_actor");
         // 向OneActor发送一个消息对象
         SomeOne someOne = new SomeOne(1, "liming", 19);
         while(true){
