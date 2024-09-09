@@ -67,6 +67,7 @@
         <module>javamain-flink</module>
         <module>javamain-k8sOperator</module>
         <module>javamain-flinkOperatorPlugin</module>
+        <module>javamain-groovy</module>
 
     </modules>
 
