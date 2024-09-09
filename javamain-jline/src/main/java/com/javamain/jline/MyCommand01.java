@@ -26,5 +26,9 @@ public class MyCommand01 {
                 System.out.println("You entered: " + line);
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6d96e7e0c1420f234e11ca49b02863b7c5f79a7c
     }
 }

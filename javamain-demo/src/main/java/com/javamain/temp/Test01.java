@@ -17,6 +17,7 @@ public class Test01 {
 //        Set<String> keys = map.keySet();
 //        keys.remove("a");
 //        System.out.println(map.size());
+<<<<<<< HEAD
 //        LocalDateTime dateTime01 = LocalDateTime.ofInstant(
 //                Instant.ofEpochSecond(1700201388), ZoneId.systemDefault());
 //        DateTimeFormatter formatter01 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -36,4 +37,20 @@ public class Test01 {
         System.out.println("你好 yzhou");
     }
 
+=======
+        LocalDateTime dateTime01 = LocalDateTime.ofInstant(
+                Instant.ofEpochSecond(1700201388), ZoneId.systemDefault());
+        DateTimeFormatter formatter01 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        String result01 = dateTime01.format(formatter01) + "000";
+        System.out.println("result01:  " + result01);
+
+
+        LocalDateTime dateTime02 = LocalDateTime.ofInstant(
+                Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.systemDefault());
+        DateTimeFormatter formatter02 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        String result02 = dateTime02.format(formatter02) + "000";
+        System.out.println("result02:  " + result02);
+
+    }
+>>>>>>> 6d96e7e0c1420f234e11ca49b02863b7c5f79a7c
 }
