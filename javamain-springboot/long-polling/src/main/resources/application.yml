@@ -1,0 +1,8 @@
+#配置端口和path路径
+server:
+  port: 8851
+
+#配置日志
+logging:
+  config: classpath:log4j2.xml
+ 

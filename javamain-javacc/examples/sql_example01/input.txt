@@ -1,0 +1,1 @@
+use cluster.code = xxx,topic.name=xxxx where cluster.code = xxx and topic.name = xxx

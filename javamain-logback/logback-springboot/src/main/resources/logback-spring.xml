@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%t] [%-5level] [traceId:%X{id}] [%C:%L] - %m%n"/>
+    <!--<property name="FILE_PATH" value="d:/${serviceName}"/>-->
+    <property name="FILE_PATH" value="logs/javamain-logback"/>
+    <!-- 每天生成日志文件,文件大小超过50则新生成一个文件，同时将旧文件按${LOG_HOME}/logs/aa.%d{yyyy-MM-dd}.%i.log.zip格式压缩，文件保存30天 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${PATTERN}</Pattern>
+        </layout>
+    </appender>
+    <!-- 方式二：输出日志到文件-->
+    <!-- 每天生成日志文件,文件大小超过50则新生成一个文件，同时将旧文件按${LOG_HOME}/logs/aa.%d{yyyy-MM-dd}.%i.log.zip格式压缩，文件保存30天 -->
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${FILE_PATH}/info.log</file> <!-- 日志名称 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${FILE_PATH}/%d{yyyy-MM-dd}/info-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>  <!-- 日志文件过大会使的编辑器打开非常慢，因此设置日志最大50MB -->
+            <maxHistory>5</maxHistory>  <!-- 保存30天 -->
+            <totalSizeCap>20GB</totalSizeCap> <!-- 总日志大小 -->
+        </rollingPolicy>
+        <!-- encoder负责两件事，一是把日志信息转换成字节数组，二是把字节数组写入到输出流。 -->
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+        <!-- 过滤器，可以过滤掉不符合条件的日志，INFO及以上的日志被处理，其它的拒绝 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${FILE_PATH}/error.log</file> <!-- 日志名称 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${FILE_PATH}/%d{yyyy-MM-dd}/error-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>  <!-- 日志文件过大会使的编辑器打开非常慢，因此设置日志最大50MB -->
+            <maxHistory>1</maxHistory>  <!-- 保存30天 -->
+            <totalSizeCap>20GB</totalSizeCap> <!-- 总日志大小 -->
+        </rollingPolicy>
+        <!-- encoder负责两件事，一是把日志信息转换成字节数组，二是把字节数组写入到输出流。 -->
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+        <!-- 过滤器，可以过滤掉不符合条件的日志，INFO及以上的日志被处理，其它的拒绝 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+<!--            kafka的appender配置-->
+    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers class="net.logstash.logback.composite.loggingevent.LoggingEventJsonProviders">
+                <pattern>
+                    <pattern>
+                        <!--输出日志可自定义，可根据自己需要配置-->
+                        {
+                        <!--环境分支 -->
+                        "env": "dev",
+                        <!--打印时间 -->
+                        "@timestamp":"%d{yyyy-MM-dd'T'HH:mm:ss.SSS}",
+                        "dateTime":"%d{yyyy-MM-dd HH:mm:ss.SSS}",
+                        <!--应用名称 -->
+                        "serviceName":"${serviceName}",
+                        <!--应用版本 -->
+                        "@version": "${version}",
+                        <!--线程名称 -->
+                        "thread": "%thread",
+                        <!--日志级别 -->
+                        "logLevel":"%level",
+                        <!--日志名称 -->
+                        "logger": "%logger{36}:%L",
+                        <!--日志信息 -->
+                        "message":"%message",
+                        <!--异常信息 -->
+                        "exception":"%exception"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <topic>yzhoutp02</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy"/>
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
+        <producerConfig>bootstrap.servers=xxx.xxx.xx.xx:9093</producerConfig>
+<!--        <producerConfig>sasl.mechanism=SCRAM-SHA-256</producerConfig>-->
+<!--        <producerConfig>security.protocol=SASL_PLAINTEXT</producerConfig>-->
+<!--        <producerConfig>properties.max.request.size==2097152</producerConfig>-->
+<!--        <producerConfig>sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username='pipeline_jikpwu_user' password='pipeline_jikpwu_useremrsln';</producerConfig>-->
+
+    </appender>
+
+    <!-- This is the kafkaAppender -->
+    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <topic>yzhoutp02</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy" />
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />
+        <producerConfig>bootstrap.servers=xxx.xxx.xx.xx:9093</producerConfig>
+        <appender-ref ref="STDOUT" />
+    </appender>
+
+    <!--异步写入kafka，若集群不可用，会阻塞appender，因此增加此配置-->
+    <appender name="KAFKA-ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>256</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="kafkaAppender" />
+    </appender>
+
+    <logger name="com.yzhou.demo.common.util.Log2KafkaProducer" level="INFO">
+        <appender-ref ref="kafkaAppender" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="KAFKA-ASYNC"/>
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+
+</configuration>

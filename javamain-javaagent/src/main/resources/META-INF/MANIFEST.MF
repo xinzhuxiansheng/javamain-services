@@ -1,0 +1,3 @@
+Premain-Class: yzhou.javamain.agent.loadtime02.LoadTimeAgent
+Agent-Class: yzhou.javamain.agent.attach01.LoadTimeAgent
+Can-Retransform-Classes: true

@@ -1,0 +1,7 @@
+server:
+  port: 7078
+spring:
+  application:
+    name: jacoco-demo
+  profiles:
+    active: local
