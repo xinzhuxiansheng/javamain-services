@@ -6,7 +6,7 @@
 
 	<Properties>
 		<!-- 配置日志文件输出目录，此配置将日志输出到tomcat根目录下的指定文件夹 -->
-		<Property name="LOG_HOME">logs</Property>
+		<Property name="LOG_HOME">d:\logs\javamain-services\javamain-elasticJobA</Property>
 	</Properties>
 
 	<Appenders>
@@ -131,7 +131,7 @@
 
 	<Loggers>
 		<!-- 配置日志的根节点 -->
-		<root level="debug">
+		<root level="info">
 			<appender-ref ref="console_out_appender" />
 			<appender-ref ref="console_err_appender" />
 			<appender-ref ref="trace_appender" />
