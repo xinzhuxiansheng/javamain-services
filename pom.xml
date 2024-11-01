@@ -69,6 +69,7 @@
         <module>javamain-flinkOperatorPlugin</module>
         <module>javamain-groovy</module>
         <module>javamain-classloader</module>
+        <module>javamain-hbase</module>
 
     </modules>
 
