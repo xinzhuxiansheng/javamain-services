@@ -4,10 +4,8 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 
 public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
-
     @Override
     protected void initChannel(SocketChannel channel) throws Exception {
-
         // 通过SocketChannel获得对应的管道
         io.netty.channel.ChannelPipeline pipeline = channel.pipeline();
 
@@ -21,6 +19,5 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 
         // 添加自定义的助手类，当请求访问，返回“hello netty”
         pipeline.addLast("HttpHandler", new HttpHandler());
-
     }
 }
