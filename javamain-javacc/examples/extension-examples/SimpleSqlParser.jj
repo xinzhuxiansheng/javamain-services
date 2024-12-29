@@ -1,0 +1,177 @@
+options {
+    IGNORE_CASE = true;
+    STATIC = false;
+    OUTPUT_DIRECTORY = "../../src/main/java/extension/examples2";
+}
+
+PARSER_BEGIN(SimpleSqlParser)
+package extension.examples2;
+public class SimpleSqlParser {
+
+    public void parse() throws ParseException {
+         SqlAttr sqlAttr = SFWStatement();
+         System.out.println("OK");
+    }
+    public SimpleSqlParser(String expr) {
+        this((Reader)(new StringReader(expr)));
+    }
+    public static void main(String[] args) throws Exception{
+        final SimpleSqlParser parser = new SimpleSqlParser(String.join(" ", args));
+        parser.parse();
+    }
+}
+PARSER_END(SimpleSqlParser)
+
+/*
+跳过的制表符
+* */
+SKIP :
+{
+    " "
+|   "\t"
+|   "\n"
+|   "\r"
+}
+
+TOKEN :
+{
+  < SELECT : "SELECT" >
+| < FROM : "FROM" >
+| < WHERE : "WHERE" >
+| < AND : "AND" >
+}
+TOKEN : {< OPERATOR : ">" | "< " | "=" | ">=" | "<=" | "<>" | "!=" >}
+TOKEN : {< NAME : ([ "a"-"z", "0"-"9" ])+ >}
+TOKEN : {< DOT : "." >}
+TOKEN : {< COMMA : "," >}
+TOKEN : {< QUO : "" >}
+
+
+
+SqlAttr SFWStatement() :
+{
+    SqlAttr sqlAttr = new SqlAttr();
+    String tbName = "";
+}
+{
+  SelectClause(sqlAttr.getSelectColumnList())
+  tbName = FromClause()
+  WhereClause(sqlAttr.getWhereColumList())
+  {
+    sqlAttr.setTableName(tbName);
+    return sqlAttr;
+  }
+}
+
+void SelectClause(List<Column> columnList) :
+{
+}
+{
+  < SELECT > Attr(columnList)
+}
+
+void Attr(List<Column> columnList) :
+{
+  Token relation;
+  Token attr;
+}
+{
+  relation = < NAME > < DOT > attr = < NAME >
+  (
+    < COMMA > Attr(columnList)
+  )*
+  {
+    Column column =  new Column(relation.image, attr.image);
+    columnList.add(column);
+  }
+}
+
+String FromClause() :
+{
+  String from;
+}
+{
+  < FROM > from = TableName()
+  {
+    return from;
+  }
+}
+
+String TableName() :
+{
+  Token t;
+}
+{
+  t = < NAME >
+  {return t.image;}
+}
+
+void WhereClause(List<KV> kvList) :
+{
+}
+{
+  < WHERE > Expression(kvList)
+}
+
+void Expression(List<KV> whereColumList) :
+{
+}
+{
+   Factor(whereColumList)
+   (
+     < AND > Expression(whereColumList)
+   )*
+}
+
+void Factor(List<KV> whereColumList) :
+{
+  Column left;
+  String right = "";
+  String operator;
+}
+{
+  left = LeftAttr()
+  operator = Operator()
+  right = RightAttr()
+  {
+    KV kv = new KV();
+    kv.setKey(left);
+    kv.setOperator(operator);
+    kv.setValue(right);
+    whereColumList.add(kv);
+  }
+}
+
+Column LeftAttr() :
+{
+  Token rel;
+  Token attr;
+}
+{
+  rel = < NAME > < DOT > attr = < NAME >
+  {
+    return new Column(rel.image, attr.image);
+  }
+| < QUO > rel = < NAME > < QUO >
+  {
+    return new Column(rel.image);
+  }
+}
+
+String RightAttr() :
+{
+  Token rel;
+}
+{
+  rel = < NAME >
+  {return rel.image;}
+}
+
+String Operator() :
+{
+  Token operator;
+}
+{
+  operator = < OPERATOR >
+  {return operator.image;}
+}

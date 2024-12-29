@@ -70,6 +70,7 @@
         <module>javamain-groovy</module>
         <module>javamain-classloader</module>
         <module>javamain-hbase</module>
+        <module>javamain-flinkagent</module>
 
     </modules>
 
