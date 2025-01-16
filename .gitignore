@@ -36,3 +36,4 @@ hs_err_pid*
 
 logs/
 broker/
+javamain-java8/file/
