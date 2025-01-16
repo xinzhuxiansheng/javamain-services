@@ -73,14 +73,21 @@ public class NettyClient {
             while (!Thread.interrupted()) {
                 if (LoginUtil.hasLogin(channel)) {
                     System.out.println("输入消息发送至服务端: ");
-                    Scanner sc = new Scanner(System.in);
-                    String line = sc.nextLine();
+//                    Scanner sc = new Scanner(System.in);
+//                    String line = sc.nextLine();
+//
+//                    channel.writeAndFlush(new MessageRequestPacket(line));
 
-                    channel.writeAndFlush(new MessageRequestPacket(line));
-
-//                    for (int i = 0; i < 1000; i++) {
-//                        channel.writeAndFlush(new MessageRequestPacket("你好，欢迎关注我的微信公众号，阿洋聊大数据 !"));
+//                    try {
+//                        TimeUnit.SECONDS.sleep(30);
+//                    } catch (InterruptedException e) {
+//                        throw new RuntimeException(e);
 //                    }
+
+
+                    for (int i = 0; i < 1000; i++) {
+                        channel.writeAndFlush(new MessageRequestPacket("你好，欢迎关注我的微信公众号，阿洋聊大数据 !"));
+                    }
 
                 }
             }

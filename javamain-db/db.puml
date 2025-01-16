@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface IMappedPage
+interface IMappedPageFactory
+interface IBigArray
+
+package bigqueue{
+    interface IBigArray
+    class BigArrayImpl
+}
+
+package bigqueue.constants{
+
+}
+
+package bigqueue.utils{
+    class Calculator
+}
+
+package bigqueue.core <<Folder>> {
+    interface IMappedPage
+    interface IMappedPageFactory
+    class MappedPageImpl
+    class MappedPageFactoryImpl
+}
+
+class MappedPageImpl implements IMappedPage {
+private String fileFullPath;
+private FileChannel fileChannel;
+private MappedByteBuffer mappedByteBuffer;
+private ByteBuffer readByteBuffer;
+ByteBuffer setPosReturnSliceBuffer(int pos);
+ByteBuffer setPosReturnSelfBuffer(int pos);
+byte[] readContent(int pos, int length);
+}
+
+class MappedPageFactoryImpl implements IMappedPageFactory {
+private String storageDirectoryPath;
+private File storageDirectoryFile;
+private String filePrefix;
+private int mappedSize;
+private Map<Long, MappedPageImpl> cache;
+
+IMappedPage acquireMappedPage(long index) throws IOException;
+void flush();
+void close();
+}
+
+MappedPageImpl --* MappedPageFactoryImpl :组合
+
+
+class BigArrayImpl implements IBigArray{
+IMappedPageFactory indexPageFactory;
+IMappedPageFactory dataPageFactory;
+IMappedPageFactory metaPageFactory;
+
+long append(byte[] data) throws IOException;
+byte[] get(long index) throws IOException;
+long getTimestamp(long index) throws IOException;
+long size();
+int getDataPageSize();
+long getHeadIndex();
+long getTailIndex();
+boolean isEmpty();
+void flush();
+
+
+}
+
+MappedPageFactoryImpl --* BigArrayImpl :组合
+@enduml
