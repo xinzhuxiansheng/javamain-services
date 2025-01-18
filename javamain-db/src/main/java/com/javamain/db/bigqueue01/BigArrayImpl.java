@@ -281,19 +281,9 @@ public class BigArrayImpl implements IBigArray {
     private ByteBuffer calcArrayIndexReturnSliceIndexByteBuffer(long arrayIndex) throws IOException {
         long indexPageIndex = 0L;
         IMappedPage indexMappedPage = this.indexPageFactory.acquireMappedPage(indexPageIndex);
-        int indexFileOffset = convertIndexFileOffset(arrayIndex);
+        int indexFileOffset = (int) (Calculator.mul(Calculator.mod(arrayIndex, INDEX_ITEMS_PER_PAGE_BITS), INDEX_ITEM_LENGTH_BITS));
         ByteBuffer mappedBuffer = indexMappedPage.setPosReturnSliceBuffer(indexFileOffset);
         return mappedBuffer;
     }
 
-    /**
-     * 根据 arrayIndex 计算 index file 写入数据的起始 offset
-     *
-     * @param arrayIndex
-     * @return
-     */
-    private int convertIndexFileOffset(long arrayIndex) {
-        int toAppendIndexItemOffset = (int) (Calculator.mul(Calculator.mod(arrayIndex, INDEX_ITEMS_PER_PAGE_BITS), INDEX_ITEM_LENGTH_BITS));
-        return toAppendIndexItemOffset;
-    }
 }
