@@ -2,14 +2,12 @@ package com.javamain.db;
 
 import com.javamain.db.bigqueue01.BigArrayImpl;
 import com.javamain.db.bigqueue01.IBigArray;
-import com.javamain.db.bigqueue01.utils.Calculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-public class TestBigArray {
+public class TestBigArray01 {
     final String storageDir = "E:\\Code\\Java\\javamain-services\\broker";
 
     @Test
@@ -34,12 +32,5 @@ public class TestBigArray {
             byte[] bytes = bigArray.get(i);
             System.out.println(new String(bytes));
         }
-        TimeUnit.SECONDS.sleep(10);
-    }
-
-    @Test
-    public void testDiv(){
-        long previousIndexPageIndex = Calculator.div(0, 17);
-        System.out.println(previousIndexPageIndex);
     }
 }

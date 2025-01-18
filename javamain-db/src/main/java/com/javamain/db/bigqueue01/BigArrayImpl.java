@@ -37,10 +37,6 @@ public class BigArrayImpl implements IBigArray {
     final static int DEFAULT_DATA_PAGE_SIZE = 128 * 1024 * 1024;
     // minimum size in bytes of a data page
     final static int MINIMUM_DATA_PAGE_SIZE = 32 * 1024 * 1024;
-    // seconds, time to live for index page cached in memory
-    final static int INDEX_PAGE_CACHE_TTL = 1000;
-    // seconds, time to live for data page cached in memory
-    final static int DATA_PAGE_CACHE_TTL = 1000;
     // 2 ^ 4 = 16
     final static int META_DATA_ITEM_LENGTH_BITS = 4;
     // size in bytes of a meta data page
@@ -159,13 +155,16 @@ public class BigArrayImpl implements IBigArray {
 
     @Override
     public long append(byte[] data) throws IOException {
-        long toAppendIndexPageIndex = 0L;
-        long toAppendDataPageIndex = 0L;
 
         // 获取 data file 写入数据的起始 offset
-        int toAppendDataItemOffset = this.headDataItemOffset;
+        // prepare the data pointer
+        if (this.headDataItemOffset + data.length > DATA_PAGE_SIZE) { // not enough space
+            this.headDataPageIndex++;
+            this.headDataItemOffset = 0;
+        }
 
-        // TODO 先不考虑文件滚动，默认从 0 开始读取, page-0.dat
+        long toAppendDataPageIndex  = this.headDataPageIndex;
+        int toAppendDataItemOffset  = this.headDataItemOffset;
         long toAppendArrayIndex = this.arrayHeadIndex.get();
 
         // data
@@ -175,9 +174,11 @@ public class BigArrayImpl implements IBigArray {
         // update to next
         this.headDataItemOffset += data.length;
 
-        int toAppendIndexItemOffset = convertIndexFileOffset(toAppendArrayIndex);
         // index
+        long toAppendIndexPageIndex = Calculator.div(toAppendArrayIndex, INDEX_ITEMS_PER_PAGE_BITS);
         IMappedPage toAppendIndexPage = this.indexPageFactory.acquireMappedPage(toAppendIndexPageIndex);
+        int toAppendIndexItemOffset = (int) (Calculator.mul(Calculator.mod(toAppendArrayIndex, INDEX_ITEMS_PER_PAGE_BITS), INDEX_ITEM_LENGTH_BITS));
+
         ByteBuffer toAppendIndexPageBuffer = toAppendIndexPage.setPosReturnSelfBuffer(toAppendIndexItemOffset);
         toAppendIndexPageBuffer.putLong(toAppendDataPageIndex);
         toAppendIndexPageBuffer.putInt(toAppendDataItemOffset);
