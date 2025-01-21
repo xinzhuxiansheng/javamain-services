@@ -1,15 +1,14 @@
-package com.javamain.db.bigqueue01;
+package com.javamain.db.bigqueue02;
 
-import com.javamain.db.bigqueue01.core.IMappedPage;
-import com.javamain.db.bigqueue01.core.IMappedPageFactory;
-import com.javamain.db.bigqueue01.core.MappedPageFactoryImpl;
-import com.javamain.db.bigqueue01.utils.Calculator;
+import com.javamain.db.bigqueue02.core.IMappedPage;
+import com.javamain.db.bigqueue02.core.IMappedPageFactory;
+import com.javamain.db.bigqueue02.core.MappedPageFactoryImpl;
+import com.javamain.db.bigqueue02.utils.Calculator;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class BigArrayImpl implements IBigArray {
 
@@ -58,8 +57,6 @@ public class BigArrayImpl implements IBigArray {
 
     // timestamp offset of an data item within an index item
     final static int INDEX_ITEM_DATA_ITEM_TIMESTAMP_OFFSET = 16;
-
-    ReentrantLock appendLock = new ReentrantLock();
 
 
     private String storageDirectoryPath;
@@ -159,51 +156,46 @@ public class BigArrayImpl implements IBigArray {
     @Override
     public long append(byte[] data) throws IOException {
 
-        appendLock.lock();
-        try {
-            // 获取 data file 写入数据的起始 offset
-            // prepare the data pointer
-            if (this.headDataItemOffset + data.length > DATA_PAGE_SIZE) { // not enough space
-                this.headDataPageIndex++;
-                this.headDataItemOffset = 0;
-            }
-
-            long toAppendDataPageIndex = this.headDataPageIndex;
-            int toAppendDataItemOffset = this.headDataItemOffset;
-            long toAppendArrayIndex = this.arrayHeadIndex.get();
-
-            // data
-            IMappedPage toAppendDataPage = this.dataPageFactory.acquireMappedPage(toAppendDataPageIndex);
-            ByteBuffer toAppendDataPageBuffer = toAppendDataPage.setPosReturnSelfBuffer(toAppendDataItemOffset);
-            toAppendDataPageBuffer.put(data);
-            // update to next
-            this.headDataItemOffset += data.length;
-
-            // index
-            long toAppendIndexPageIndex = Calculator.div(toAppendArrayIndex, INDEX_ITEMS_PER_PAGE_BITS);
-            IMappedPage toAppendIndexPage = this.indexPageFactory.acquireMappedPage(toAppendIndexPageIndex);
-            int toAppendIndexItemOffset = (int) (Calculator.mul(Calculator.mod(toAppendArrayIndex, INDEX_ITEMS_PER_PAGE_BITS), INDEX_ITEM_LENGTH_BITS));
-
-            ByteBuffer toAppendIndexPageBuffer = toAppendIndexPage.setPosReturnSelfBuffer(toAppendIndexItemOffset);
-            toAppendIndexPageBuffer.putLong(toAppendDataPageIndex);
-            toAppendIndexPageBuffer.putInt(toAppendDataItemOffset);
-            toAppendIndexPageBuffer.putInt(data.length);
-            long currentTime = System.currentTimeMillis();
-            toAppendIndexPageBuffer.putLong(currentTime);
-
-            // 增加数据 size
-            arrayHeadIndex.incrementAndGet();
-
-            // meta_data
-            IMappedPage metaDataPage = this.metaPageFactory.acquireMappedPage(META_DATA_PAGE_INDEX);
-            ByteBuffer metaDataByteBuffer = metaDataPage.setPosReturnSliceBuffer(0);
-            metaDataByteBuffer.putLong(arrayHeadIndex.get());
-            metaDataByteBuffer.putLong(arrayTailIndex.get());
-
-            return toAppendArrayIndex;
-        } finally {
-            appendLock.unlock();
+        // 获取 data file 写入数据的起始 offset
+        // prepare the data pointer
+        if (this.headDataItemOffset + data.length > DATA_PAGE_SIZE) { // not enough space
+            this.headDataPageIndex++;
+            this.headDataItemOffset = 0;
         }
+
+        long toAppendDataPageIndex  = this.headDataPageIndex;
+        int toAppendDataItemOffset  = this.headDataItemOffset;
+        long toAppendArrayIndex = this.arrayHeadIndex.get();
+
+        // data
+        IMappedPage toAppendDataPage = this.dataPageFactory.acquireMappedPage(toAppendDataPageIndex);
+        ByteBuffer toAppendDataPageBuffer = toAppendDataPage.setPosReturnSelfBuffer(toAppendDataItemOffset);
+        toAppendDataPageBuffer.put(data);
+        // update to next
+        this.headDataItemOffset += data.length;
+
+        // index
+        long toAppendIndexPageIndex = Calculator.div(toAppendArrayIndex, INDEX_ITEMS_PER_PAGE_BITS);
+        IMappedPage toAppendIndexPage = this.indexPageFactory.acquireMappedPage(toAppendIndexPageIndex);
+        int toAppendIndexItemOffset = (int) (Calculator.mul(Calculator.mod(toAppendArrayIndex, INDEX_ITEMS_PER_PAGE_BITS), INDEX_ITEM_LENGTH_BITS));
+
+        ByteBuffer toAppendIndexPageBuffer = toAppendIndexPage.setPosReturnSelfBuffer(toAppendIndexItemOffset);
+        toAppendIndexPageBuffer.putLong(toAppendDataPageIndex);
+        toAppendIndexPageBuffer.putInt(toAppendDataItemOffset);
+        toAppendIndexPageBuffer.putInt(data.length);
+        long currentTime = System.currentTimeMillis();
+        toAppendIndexPageBuffer.putLong(currentTime);
+
+        // 增加数据 size
+        arrayHeadIndex.incrementAndGet();
+
+        // meta_data
+        IMappedPage metaDataPage = this.metaPageFactory.acquireMappedPage(META_DATA_PAGE_INDEX);
+        ByteBuffer metaDataByteBuffer = metaDataPage.setPosReturnSliceBuffer(0);
+        metaDataByteBuffer.putLong(arrayHeadIndex.get());
+        metaDataByteBuffer.putLong(arrayTailIndex.get());
+
+        return toAppendArrayIndex;
     }
 
     @Override
