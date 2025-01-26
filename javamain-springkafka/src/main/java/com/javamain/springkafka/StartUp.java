@@ -22,14 +22,12 @@ public class StartUp {
     }
 
     public static void main(String[] args) {
-        // 加载 spring 容器
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.scan("com.javamain.springkafka");
         context.refresh();
 
         httpServer.startHttpServer();
 
-        // 保持进程常驻
         CountDownLatch latch = new CountDownLatch(1);
         try {
             latch.await(); // 阻塞主线程
@@ -37,7 +35,6 @@ public class StartUp {
             logger.error("Process interrupted", e);
             Thread.currentThread().interrupt();
         } finally {
-            // 关闭 Spring 容器
             context.close();
             logger.info("Spring container closed.");
         }
