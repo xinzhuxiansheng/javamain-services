@@ -1,0 +1,20 @@
+@startuml
+
+package kiwi.core.storage{
+
+}
+package kiwi.core.storage.log{
+    class Hint
+    class HintSegment
+    class LogCleaner
+    class LogSegment
+    class LogSegmentNameGenerator
+    class Record
+
+}
+package kiwi.core.error{
+    class KiwiException
+
+}
+
+@enduml

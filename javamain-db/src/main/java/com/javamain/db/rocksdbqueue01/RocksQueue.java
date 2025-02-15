@@ -54,7 +54,7 @@ public class RocksQueue {
     private long getIndexId(byte[] key, long defaultValue) {
         byte[] value = store.getCF(key, indexCfHandle);
 
-        if(value == null) {
+        if (value == null) {
             return defaultValue;
         }
 
@@ -64,7 +64,7 @@ public class RocksQueue {
     public long enqueue(byte[] value) throws RocksQueueException {
         long id = tail.incrementAndGet();
 
-        try(final WriteBatch writeBatch = new WriteBatch()) {
+        try (final WriteBatch writeBatch = new WriteBatch()) {
             final byte[] indexId = Bytes.longToByte(id);
             writeBatch.put(cfHandle, indexId, value);
             writeBatch.merge(indexCfHandle, TAIL, ONE);
@@ -82,6 +82,7 @@ public class RocksQueue {
 
     /**
      * Get the head and remove it from queue
+     *
      * @return
      */
     public QueueItem dequeue() throws RocksQueueException {
@@ -91,7 +92,7 @@ public class RocksQueue {
         } catch (RocksQueueException e) {
             throw new RocksQueueDequeueException(store.getRockdbLocation(), e);
         }
-        if(item != null && item.getValue() != null) {
+        if (item != null && item.getValue() != null) {
             this.rocksQueueMetric.onDequeue(item.getValue().length);
         }
         return item;
@@ -100,23 +101,24 @@ public class RocksQueue {
     /**
      * Get the head of queue, in case there will have many deleted tombstones,
      * the final return index maybe bigger than the startId.
+     *
      * @return
      */
     public QueueItem consume() {
-        if(this.getSize() == 0) {
+        if (this.getSize() == 0) {
             return null;
         }
 
         //for the first time, if head is 0, seek from 1
         long sid = head.get() + 1;
 
-        if(!tailIterator.isValid()) {
+        if (!tailIterator.isValid()) {
             tailIterator.seek(Bytes.longToByte(sid));
         }
 
         //when dequeue happens faster than enqueue, the tail iterator would be exhausted,
         //so we seek it again
-        if(!tailIterator.isValid()) {
+        if (!tailIterator.isValid()) {
             return null;
         }
 
@@ -127,14 +129,15 @@ public class RocksQueue {
 
     /**
      * Remove the head from queue
+     *
      * @return
      */
     public void removeHead() throws RocksQueueException {
-        if(this.getSize() <= 0) {
+        if (this.getSize() <= 0) {
             return;
         }
 
-        try(final WriteBatch writeBatch = new WriteBatch()) {
+        try (final WriteBatch writeBatch = new WriteBatch()) {
             writeBatch.remove(cfHandle, Bytes.longToByte(head.get()));
             writeBatch.merge(indexCfHandle, HEAD, ONE);
             store.write(writeBatch);
@@ -162,7 +165,7 @@ public class RocksQueue {
     }
 
     public boolean isEmpty() {
-        return tail.get() == 0 ? true: tail.get() <= head.get();
+        return tail.get() == 0 ? true : tail.get() <= head.get();
     }
 
     public long getSize() {
