@@ -9,70 +9,75 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>javamain-zookeeperFeatures</module>
-        <module>javamain-elasticsearch</module>
-        <module>javamain-JOptSimple</module>
+<!--        <module>javamain-zookeeperFeatures</module>-->
+<!--        <module>javamain-elasticsearch</module>-->
+<!--        <module>javamain-JOptSimple</module>-->
         <module>javamain-netty</module>
-        <module>javamain-jdk</module>
-        <module>javamain-algorithms</module>
-        <module>javamain-kafkaClient</module>
-        <module>javamain-demo</module>
-        <module>javamain-java8</module>
-        <module>javamain-kafkaClient01000</module>
-        <module>javamain-monitorAD</module>
-        <module>javamain-mybatis</module>
-        <module>javamain-springkafka</module>
-        <module>javamain-guava</module>
-        <module>javamain-designPatterns</module>
-        <module>javamain-caffeine</module>
-        <module>javamain-guide-rpc-framework</module>
-        <module>javamain-javacc</module>
-        <module>javamain-dubboclient</module>
-        <module>javamain-dubboserver</module>
-        <module>javamain-k8s</module>
-        <module>javamain-velocity</module>
-        <module>javamain-springboot</module>
-        <module>javamain-common</module>
-        <module>javamain-prometheus</module>
-        <module>javamain-logback</module>
-        <module>javamain-log4j</module>
-        <module>javamain-docker</module>
-        <module>javamain-hutool</module>
-        <module>javamain-db</module>
-        <module>javamain-akka</module>
-        <module>javamain-metrics</module>
-        <module>javamain-rocketmq</module>
-        <module>javamain-jline</module>
-        <module>javamain-javassist</module>
-        <module>javamain-redis</module>
-        <module>javamain-dubbo</module>
-        <module>javamain-micrometer</module>
-        <module>javamain-openjob</module>
-        <module>javamain-jraft</module>
-        <module>javamain-hazelcast</module>
+<!--        <module>javamain-jdk</module>-->
+<!--        <module>javamain-algorithms</module>-->
+<!--        <module>javamain-kafkaClient</module>-->
+<!--        <module>javamain-demo</module>-->
+<!--        <module>javamain-java8</module>-->
+<!--        <module>javamain-kafkaClient01000</module>-->
+<!--        <module>javamain-monitorAD</module>-->
+<!--        <module>javamain-mybatis</module>-->
+<!--        <module>javamain-springkafka</module>-->
+<!--        <module>javamain-guava</module>-->
+<!--        <module>javamain-designPatterns</module>-->
+<!--        <module>javamain-caffeine</module>-->
+<!--        <module>javamain-guide-rpc-framework</module>-->
+<!--        <module>javamain-javacc</module>-->
+<!--        <module>javamain-dubboclient</module>-->
+<!--        <module>javamain-dubboserver</module>-->
+<!--        <module>javamain-k8s</module>-->
+<!--        <module>javamain-velocity</module>-->
+<!--        <module>javamain-springboot</module>-->
+<!--        <module>javamain-common</module>-->
+<!--        <module>javamain-prometheus</module>-->
+<!--        <module>javamain-logback</module>-->
+<!--        <module>javamain-log4j</module>-->
+<!--        <module>javamain-docker</module>-->
+<!--        <module>javamain-hutool</module>-->
+<!--        <module>javamain-db</module>-->
+<!--        <module>javamain-akka</module>-->
+<!--        <module>javamain-metrics</module>-->
+<!--        <module>javamain-rocketmq</module>-->
+<!--        <module>javamain-jline</module>-->
+<!--        <module>javamain-javassist</module>-->
+<!--        <module>javamain-redis</module>-->
+<!--        <module>javamain-dubbo</module>-->
+<!--        <module>javamain-micrometer</module>-->
+<!--        <module>javamain-openjob</module>-->
+<!--        <module>javamain-jraft</module>-->
+<!--        <module>javamain-hazelcast</module>-->
         <module>javamain-calcite</module>
-        <module>javamain-timingWheel</module>
-        <module>javamain-webservice</module>
-        <!--        <module>javamain-scalatest</module>-->
-        <!--        <module>javamain-asm</module>-->
-        <module>javamain-javaagent</module>
-        <!--        <module>javamain-antlr</module>-->
-        <!--        <module>javamain-s3</module>-->
-        <!--已经注释-->
-        <!--        <module>javamain-brpcjava01</module>-->
-        <!--        <module>javamain-brpcjava02</module>-->
-        <!--		<module>javamain-annotation</module>	-->
-        <!--        <module>javamain-elasticJobA</module>       -->
-        <module>javamain-pekko</module>
-        <module>javamain-flink</module>
-        <module>javamain-k8sOperator</module>
-        <module>javamain-flinkOperatorPlugin</module>
-        <module>javamain-groovy</module>
-        <module>javamain-classloader</module>
-        <module>javamain-hbase</module>
-        <module>javamain-flinkagent</module>
+<!--        <module>javamain-timingWheel</module>-->
+<!--        <module>javamain-webservice</module>-->
+<!--        &lt;!&ndash;        <module>javamain-scalatest</module>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <module>javamain-asm</module>&ndash;&gt;-->
+<!--        <module>javamain-javaagent</module>-->
+<!--        &lt;!&ndash;        <module>javamain-antlr</module>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <module>javamain-s3</module>&ndash;&gt;-->
+<!--        &lt;!&ndash;已经注释&ndash;&gt;-->
+<!--        &lt;!&ndash;        <module>javamain-brpcjava01</module>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <module>javamain-brpcjava02</module>&ndash;&gt;-->
+<!--        &lt;!&ndash;		<module>javamain-annotation</module>	&ndash;&gt;-->
+<!--        &lt;!&ndash;        <module>javamain-elasticJobA</module>       &ndash;&gt;-->
+<!--        <module>javamain-pekko</module>-->
+<!--        <module>javamain-flink</module>-->
+<!--        <module>javamain-k8sOperator</module>-->
+<!--        <module>javamain-flinkOperatorPlugin</module>-->
+<!--        <module>javamain-groovy</module>-->
+<!--        <module>javamain-classloader</module>-->
+<!--        <module>javamain-hbase</module>-->
+<!--        <module>javamain-flinkagent</module>-->
 
-        <module>javamain-bitcask</module>
+<!--        <module>javamain-bitcask</module>-->
+<!--        <module>javamain-hive</module>-->
+<!--        <module>javamain-vavr</module>-->
+<!--        <module>javamain-spi</module>-->
+
+        <module>javamain-reactornetty</module>
 
     </modules>
 
