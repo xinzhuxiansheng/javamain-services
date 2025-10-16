@@ -1,10 +1,10 @@
-package com.xinzhuxiansheng.javaproject.loadplugin;
+package com.xinzhuxiansheng.sso.loadplugin;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONWriter;
-import com.xinzhuxiansheng.javaproject.exception.CommonErrorCode;
-import com.xinzhuxiansheng.javaproject.exception.ErrorCode;
-import com.xinzhuxiansheng.javaproject.exception.ZouWuException;
+import com.xinzhuxiansheng.sso.exception.CommonErrorCode;
+import com.xinzhuxiansheng.sso.exception.ErrorCode;
+import com.xinzhuxiansheng.sso.exception.ZouWuException;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.StringUtils;

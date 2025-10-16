@@ -1,4 +1,4 @@
-package com.xinzhuxiansheng.javaproject;
+package com.xinzhuxiansheng.sso;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

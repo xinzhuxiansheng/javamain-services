@@ -1,8 +1,8 @@
-package com.xinzhuxiansheng.javaproject.loadplugin;
+package com.xinzhuxiansheng.sso.loadplugin;
 
 import com.alibaba.fastjson2.JSONObject;
-import com.xinzhuxiansheng.javaproject.exception.FrameworkErrorCode;
-import com.xinzhuxiansheng.javaproject.exception.ZouWuException;
+import com.xinzhuxiansheng.sso.exception.FrameworkErrorCode;
+import com.xinzhuxiansheng.sso.exception.ZouWuException;
 
 import java.io.File;
 import java.util.*;

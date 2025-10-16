@@ -1,4 +1,4 @@
-package com.xinzhuxiansheng.javaproject.processor;
+package com.xinzhuxiansheng.sso.processor;
 
 import io.openjob.worker.context.JobContext;
 import io.openjob.worker.processor.JavaProcessor;

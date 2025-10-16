@@ -1,0 +1,6 @@
+product_id,product_name,price,category
+101,Laptop,999.99,Electronics
+102,Mouse,29.99,Electronics
+103,Keyboard,79.99,Electronics
+104,Chair,199.99,Furniture
+105,Desk,299.99,Furniture

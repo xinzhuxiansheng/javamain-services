@@ -1,0 +1,14 @@
+# 项目启动的端口号
+server:
+  port: 8090
+  servlet:
+    session:
+      tracking-modes: cookie
+# CAS配置
+cas:
+  # CAS服务的地址
+  server-url-prefix: http://localhost:8443/cas
+  # CAS服务的登录地址
+  server-login-url: http://localhost:8443/cas/login
+  # 客户端地址（用于登录后重定向）
+  client-host-url: http://localhost:8090/

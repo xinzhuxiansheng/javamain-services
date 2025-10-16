@@ -1,4 +1,4 @@
-package com.xinzhuxiansheng.javaproject;
+package com.xinzhuxiansheng.sso;
 
 public class Student implements Person {
   public String favorite() {

@@ -78,6 +78,7 @@
 <!--        <module>javamain-spi</module>-->
 
         <module>javamain-reactornetty</module>
+        <module>javamain-sso</module>
 
     </modules>
 

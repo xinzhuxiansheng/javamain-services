@@ -1,4 +1,4 @@
-package com.xinzhuxiansheng.javaproject.controller;
+package com.xinzhuxiansheng.sso.controller;
 
 import com.alibaba.fastjson2.JSONObject;
 import org.slf4j.Logger;

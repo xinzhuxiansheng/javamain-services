@@ -6,7 +6,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>javamain-netty</artifactId>
+  <artifactId>javamain-reactornetty</artifactId>
   <build>
     <plugins>
       <plugin>

@@ -1,4 +1,4 @@
-package com.xinzhuxiansheng.javaproject.loadplugin;
+package com.xinzhuxiansheng.sso.loadplugin;
 
 import org.apache.commons.lang3.StringUtils;
 

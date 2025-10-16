@@ -1,4 +1,4 @@
-package com.xinzhuxiansheng.javaproject.exception;
+package com.xinzhuxiansheng.sso.exception;
 
 
 /**

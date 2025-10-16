@@ -1,10 +1,10 @@
-package com.xinzhuxiansheng.javaproject;
+package com.xinzhuxiansheng.sso;
 
 import com.alibaba.fastjson2.JSONObject;
-import com.xinzhuxiansheng.javaproject.loadplugin.ConfigParser;
-import com.xinzhuxiansheng.javaproject.loadplugin.Configuration;
-import com.xinzhuxiansheng.javaproject.loadplugin.JarLoader;
-import com.xinzhuxiansheng.javaproject.loadplugin.LoadUtil;
+import com.xinzhuxiansheng.sso.loadplugin.ConfigParser;
+import com.xinzhuxiansheng.sso.loadplugin.Configuration;
+import com.xinzhuxiansheng.sso.loadplugin.JarLoader;
+import com.xinzhuxiansheng.sso.loadplugin.LoadUtil;
 
 import java.util.HashMap;
 import java.util.Iterator;

@@ -1,6 +1,6 @@
-package com.xinzhuxiansheng.javaproject.loadplugin;
+package com.xinzhuxiansheng.sso.loadplugin;
 
-import com.xinzhuxiansheng.javaproject.exception.ZouWuException;
+import com.xinzhuxiansheng.sso.exception.ZouWuException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.core.config.plugins.util.PluginType;
 
